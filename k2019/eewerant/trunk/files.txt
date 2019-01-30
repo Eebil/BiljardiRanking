@@ -1,0 +1,2 @@
+nimet.dat
+pelihistoria.dat
