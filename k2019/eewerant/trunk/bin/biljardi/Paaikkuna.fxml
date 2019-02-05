@@ -16,8 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane prefHeight="269.0" prefWidth="415.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1">
+<AnchorPane prefHeight="269.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="237.0" prefWidth="413.0">
          <left>
@@ -99,7 +98,7 @@
                 <RowConstraints maxHeight="176.0" minHeight="10.0" prefHeight="158.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ListChooser prefHeight="284.0" prefWidth="216.0" rivit="1. MAHTI MAHTURI&#9;&#9;&#9;3102&#10;2. JESSE JEPUTIN&#9;&#9;&#9;3001&#10;3. ANSKI PANSKI&#9;&#9;&#9;2950&#10;4. AINO PAMPELI&#9;&#9;&#9;2890&#10;5. KIRKONPOLTTAJA666 &#9;&#9;2600&#10;7. Otto Lonkero&#9;&#9;&#9;2500&#10;8. Mörö Kölli&#9;&#9;&#9;&#9;2102&#10;" GridPane.rowIndex="1" />
+                  <ListChooser prefHeight="284.0" prefWidth="216.0" rivit="1. |MAHTI MAHTURI&#9;&#9;|3102&#10;2. |JESSE JEPUTIN&#9;&#9;&#9;|3001&#10;3. |ANSKI PANSKI&#9;&#9;&#9;|2950&#10;4. |AINO PAMPELI&#9;&#9;&#9;|2890&#10;5. |KIRKONPOLTTAJA666 &#9;|2600&#10;7. |Otto Lonkero&#9;&#9;&#9;|2500&#10;8. |Mörö Kölli&#9;&#9;&#9;&#9;|2102&#10;" GridPane.rowIndex="1" />
                   <GridPane>
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
