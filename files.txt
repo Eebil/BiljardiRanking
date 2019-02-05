@@ -1,2 +1,14 @@
+!https://tim.jyu.fi/view/kurssit/tie/ohj2/2019k/ht/eewerant = Suunnitelma TIMissä
+kuvat/avaus.jpg = ohjelman avausikkuna (käsin piirretty)
+kuvat/paanakyma.jpg      = kuva ohjelman pääikkunasta (kp)
+kuvat/pelikaynnissa.png   = kuva käynnissä olevasta pelistä (kp)
+kuvat/pelihistoria.png   = kuva pelihistoriasta (kp)
+kuvat/uusipeli.png   = kuva uuden pelin aloittamisesta (kp)
+kuvat/avausSB.png   = kuva avauksesta scenebuilderilla
+kuvat/paaikkunaSB.png   = kuva pääikkunasta scenebuilderilla
+kuvat/pelihistoriaSB.png   = kuva pelihistoriasta scenebuilderilla
+kuvat/uusipeliSB.png   = kuva uudesta pelistä scenebuilderilla
+kuvat/poistovaroitusSB.png   = kuva poistamisvaroituksesta scenebuilderilla
+kuvat/tiedotSB.png   = kuva åelaajan tiedoista scenebuilderilla
 nimet.dat
 pelihistoria.dat
