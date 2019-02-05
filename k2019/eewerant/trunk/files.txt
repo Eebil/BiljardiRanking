@@ -1,4 +1,9 @@
-!https://tim.jyu.fi/view/kurssit/tie/ohj2/2019k/ht/eewerant = Suunnitelma TIMissä
+=----------------------------------------
+= Ohjelmointi 2, 2017, vaihe 2
+=----------------------------------------
+= Katso <a href=".." target="_top">työ vaiheittain</a>
+=
+=
 kuvat/avaus.jpg = ohjelman avausikkuna (käsin piirretty)
 kuvat/paanakyma.jpg      = kuva ohjelman pääikkunasta (kp)
 kuvat/pelikaynnissa.png   = kuva käynnissä olevasta pelistä (kp)
@@ -9,6 +14,34 @@ kuvat/paaikkunaSB.png   = kuva pääikkunasta scenebuilderilla
 kuvat/pelihistoriaSB.png   = kuva pelihistoriasta scenebuilderilla
 kuvat/uusipeliSB.png   = kuva uudesta pelistä scenebuilderilla
 kuvat/poistovaroitusSB.png   = kuva poistamisvaroituksesta scenebuilderilla
-kuvat/tiedotSB.png   = kuva åelaajan tiedoista scenebuilderilla
-nimet.dat
-pelihistoria.dat
+kuvat/tiedotSB.png   = kuva pelaajan tiedoista scenebuilderilla
+=
+= <h3>Ajettava ohjelma</h3>
+=
+= <h3>Ohjelman esisuunnitelma</h3>
+!https://tim.jyu.fi/view/kurssit/tie/ohj2/2019k/ht/eewerant = Suunnitelma TIMissä
+=
+kuvat/avaak.png = kuva ohjelman alusta (käsin piirretty)
+kuvat/eiaukeak.png = virheilmoitus jos tiedostoa ei ole (kp)
+kuvat/paaikkunak.png = ohjelman pääikkunan (kp)
+=
+= <h3>Käyttöliittymän ulkoasu JavaFX:llä</h3>
+src/biljardi/BiljardiMain.java = ohjelman käynnistävä pääluokka
+src/biljardi/BiljardiGUIView.fxml =kerhon varsinainen käyttöliittymä
+src/biljardi/BiljardiGUIController.java = ohjain joka käsittelee käyttöliittymästä tulevat tapahtumat
+src/biljardi/biljardi.css = tyylitiedosto (ei vielä muutettu mitään)
+
+src/biljardi/Paaikkuna.fxml = Phjelman päänäkymä
+src/biljardi/PelaajanTiedot.fxml = Pelaajan tiedot muokata voi nimeä ja vuosikurssia
+src/biljardi/Pelihistoria.fxml = Pelihistoria
+src/biljardi/UusiPeli.fxml = Uuden pelin rekisteröimisikkuna
+
+
+=
+= <h3>Muita tiedostoja</h3>
+.project = Eclipsen projekti
+.classpath = Eclipsen luokkapolku
+.settings/org.eclipse.jdt.core.prefs = Eclipsen kääntäjän varoitukset
+
+
+
