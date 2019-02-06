@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane prefHeight="200.0" prefWidth="688.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="biljardi.TietojaGUIController">
+   <center>
+      <DialogPane prefHeight="124.0" prefWidth="657.0" BorderPane.alignment="CENTER">
+         <header>
+            <TextArea editable="false" prefHeight="65.0" prefWidth="688.0" text="Biljardiranking V 0.0.1">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </TextArea>
+         </header>
+         <content>
+            <TextArea editable="false" prefHeight="0.0" prefWidth="657.0" text="Tämän ohjelman on tehnyt Eetu Rantala herran vuonna 2019&#10;pitämään lukua liikunnan biljardipöydän herruudesta.&#10;ohj2 kurssin harjoitustyö.&#10;">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextArea>
+         </content>
+      </DialogPane>
+   </center>
+   <bottom>
+      <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="264.0" text="Mahtia" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
