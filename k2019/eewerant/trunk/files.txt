@@ -1,4 +1,4 @@
-=----------------------------------------
+﻿=----------------------------------------
 = Ohjelmointi 2, 2017, vaihe 2
 =----------------------------------------
 = Katso <a href=".." target="_top">työ vaiheittain</a>
@@ -15,6 +15,7 @@ kuvat/pelihistoriaSB.png   = kuva pelihistoriasta scenebuilderilla
 kuvat/uusipeliSB.png   = kuva uudesta pelistä scenebuilderilla
 kuvat/poistovaroitusSB.png   = kuva poistamisvaroituksesta scenebuilderilla
 kuvat/tiedotSB.png   = kuva pelaajan tiedoista scenebuilderilla
+kuvat/tiedotoja.png = kuva tietoja-ikkunasta
 =
 = <h3>Ajettava ohjelma</h3>
 =
@@ -35,6 +36,11 @@ src/biljardi/Paaikkuna.fxml = Phjelman päänäkymä
 src/biljardi/PelaajanTiedot.fxml = Pelaajan tiedot muokata voi nimeä ja vuosikurssia
 src/biljardi/Pelihistoria.fxml = Pelihistoria
 src/biljardi/UusiPeli.fxml = Uuden pelin rekisteröimisikkuna
+
+src/biljardi/TietojaGUIView.fxml = Tietoikkunan dialogi
+src/biljardi/TietojaGUIController.java = tuleva controlleri titodialogille (ei vielä käyttöä)
+
+
 
 
 =
