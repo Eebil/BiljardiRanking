@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import fi.jyu.mit.fxgui.ListChooser?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="269.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="237.0" prefWidth="413.0">
+         <left>
+            <GridPane prefHeight="159.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="68.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="89.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button mnemonicParsing="false" text="Uusi Peli">
+                     <GridPane.margin>
+                        <Insets left="10.0" top="60.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" text="Pelihistoria" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <GridPane GridPane.rowIndex="2">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextField promptText="Hae pelaajaa">
+                           <GridPane.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Button mnemonicParsing="false" text="Hae" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="10.0" />
+                           </GridPane.margin>
+                        </Button>
+                     </children>
+                  </GridPane>
+               </children>
+            </GridPane>
+         </left>
+         <top>
+            <MenuBar prefHeight="24.0" prefWidth="370.0" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="Tiedosto">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Muokkaa">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Apuja!">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <bottom>
+            <HBox prefHeight="0.0" prefWidth="320.0" BorderPane.alignment="CENTER" />
+         </bottom>
+         <center>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="62.0" minHeight="0.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="176.0" minHeight="10.0" prefHeight="158.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ListChooser prefHeight="284.0" prefWidth="216.0" rivit="1. |MAHTI MAHTURI&#9;&#9;|3102&#10;2. |JESSE JEPUTIN&#9;&#9;&#9;|3001&#10;3. |ANSKI PANSKI&#9;&#9;&#9;|2950&#10;4. |AINO PAMPELI&#9;&#9;&#9;|2890&#10;5. |KIRKONPOLTTAJA666 &#9;|2600&#10;7. |Otto Lonkero&#9;&#9;&#9;|2500&#10;8. |Mörö Kölli&#9;&#9;&#9;&#9;|2102&#10;" GridPane.rowIndex="1" />
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Ranking" textAlignment="CENTER">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="ELO" GridPane.columnIndex="1">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <GridPane.margin>
+                              <Insets left="60.0" />
+                           </GridPane.margin>
+                        </Label>
+                     </children>
+                     <opaqueInsets>
+                        <Insets left="100.0" />
+                     </opaqueInsets>
+                  </GridPane>
+               </children>
+            </GridPane>
+         </center>
+         <right>
+            <VBox prefHeight="187.0" prefWidth="42.0" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>
