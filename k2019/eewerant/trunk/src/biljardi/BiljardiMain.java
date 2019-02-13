@@ -12,11 +12,12 @@ import javafx.fxml.FXMLLoader;
  * @version 31.1.2019
  *
  */
+
 public class BiljardiMain extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader ldr = new FXMLLoader(getClass().getResource("BiljardiGUIView.fxml"));
+            FXMLLoader ldr = new FXMLLoader(getClass().getResource("Paaikkuna.fxml"));
             final Pane root = ldr.load();
             //final BiljardiGUIController biljardiCtrl = (BiljardiGUIController) ldr.getController();
             Scene scene = new Scene(root);
@@ -30,9 +31,10 @@ public class BiljardiMain extends Application {
     }
 
     /**
-     * @param args Ei kï¿½ytï¿½ssï¿½
+     * @param args Ei käytössä
      */
     public static void main(String[] args) {
         launch(args);
     }
 }
+

@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane prefHeight="200.0" prefWidth="688.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="biljardi.TietojaGUIController">
+<BorderPane prefHeight="200.0" prefWidth="688.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biljardi.PaaikkunaGUIController">
    <center>
       <DialogPane prefHeight="124.0" prefWidth="657.0" BorderPane.alignment="CENTER">
          <header>
@@ -27,6 +26,6 @@
       </DialogPane>
    </center>
    <bottom>
-      <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="264.0" text="Mahtia" BorderPane.alignment="CENTER" />
+      <Button mnemonicParsing="false" onAction="#handleMahtia" prefHeight="23.0" prefWidth="264.0" text="Mahtia" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>

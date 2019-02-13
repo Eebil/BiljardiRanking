@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="269.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="269.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biljardi.PaaikkunaGUIController">
    <children>
       <BorderPane prefHeight="237.0" prefWidth="413.0">
          <left>
@@ -30,12 +30,12 @@
                 <RowConstraints maxHeight="89.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" text="Uusi Peli">
+                  <Button mnemonicParsing="false" onAction="#handleUusiPeli" text="Uusi Peli">
                      <GridPane.margin>
                         <Insets left="10.0" top="60.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Pelihistoria" GridPane.rowIndex="1">
+                  <Button mnemonicParsing="false" onAction="#handlePelihistoria" text="Pelihistoria" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
@@ -54,7 +54,7 @@
                               <Insets left="10.0" right="10.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Button mnemonicParsing="false" text="Hae" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" onAction="#handleHae" text="Hae" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
@@ -69,17 +69,17 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Tiedosto">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                    <MenuItem mnemonicParsing="false" text="Lopeta" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Muokkaa">
+                <Menu mnemonicParsing="false" onAction="#handleLopeta" text="Muokkaa">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleLisaaJasen" text="Lisää Jäsen" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Apuja!">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleTietoja" text="Tietoja" />
                   </items>
                 </Menu>
               </menus>
