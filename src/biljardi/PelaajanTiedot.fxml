@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="261.0" prefWidth="248.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <GridPane prefHeight="259.0" prefWidth="226.0" BorderPane.alignment="CENTER">
@@ -65,13 +64,13 @@
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" text="Pelihistoria" GridPane.rowIndex="7">
+            <Button mnemonicParsing="false" onAction="#handlePelihistoria" text="Pelihistoria" GridPane.rowIndex="7">
                <GridPane.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Tallenna ja poistu" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Button mnemonicParsing="false" text="Poista Jäsen" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Button mnemonicParsing="false" onAction="#handleTallennaJaPoistu" text="Tallenna ja poistu" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Button mnemonicParsing="false" onAction="#handlePoistaJasen" text="Poista Jäsen" GridPane.columnIndex="1" GridPane.rowIndex="8" />
          </children>
       </GridPane>
    </center>
