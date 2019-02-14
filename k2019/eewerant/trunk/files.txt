@@ -31,11 +31,13 @@ src/biljardi/BiljardiMain.java = ohjelman käynnistävä pääluokka
 src/biljardi/BiljardiGUIView.fxml =kerhon varsinainen käyttöliittymä
 src/biljardi/BiljardiGUIController.java = ohjain joka käsittelee käyttöliittymästä tulevat tapahtumat
 src/biljardi/biljardi.css = tyylitiedosto (ei vielä muutettu mitään)
+PaaikkunaGUIController.java = pääikkunan kontrolleri
 
 src/biljardi/Paaikkuna.fxml = Phjelman päänäkymä
 src/biljardi/PelaajanTiedot.fxml = Pelaajan tiedot muokata voi nimeä ja vuosikurssia
 src/biljardi/Pelihistoria.fxml = Pelihistoria
 src/biljardi/UusiPeli.fxml = Uuden pelin rekisteröimisikkuna
+
 
 src/biljardi/TietojaGUIView.fxml = Tietoikkunan dialogi
 src/biljardi/TietojaGUIController.java = tuleva controlleri titodialogille (ei vielä käyttöä)
