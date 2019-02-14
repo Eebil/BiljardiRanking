@@ -26,6 +26,6 @@
       </DialogPane>
    </center>
    <bottom>
-      <Button mnemonicParsing="false" onAction="#handleMahtia" prefHeight="23.0" prefWidth="264.0" text="Mahtia" BorderPane.alignment="CENTER" />
+      <Button fx:id="Poistu" mnemonicParsing="false" onAction="#handlePoistu" prefHeight="23.0" prefWidth="264.0" text="Mahtia" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>
