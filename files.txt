@@ -16,6 +16,7 @@ kuvat/uusipeliSB.png   = kuva uudesta pelistä scenebuilderilla
 kuvat/poistovaroitusSB.png   = kuva poistamisvaroituksesta scenebuilderilla
 kuvat/tiedotSB.png   = kuva pelaajan tiedoista scenebuilderilla
 kuvat/tietoja.png = kuva tietoja-ikkunasta
+kuvat/tietorakenne.png = kaavio tietorakenteesta
 =
 = <h3>Ajettava ohjelma</h3>
 BiljardiRanking.jar = ajettava jar-tiedosto
