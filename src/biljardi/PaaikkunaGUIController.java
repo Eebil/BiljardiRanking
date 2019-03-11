@@ -13,12 +13,17 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
+/**
+ * @author eewerant
+ * @version 11.3.2019
+ *
+ */
 public class PaaikkunaGUIController implements ModalControllerInterface<String> {
 
 	@FXML private Button Poistu;
 
 	@FXML void handleHae() {
-		Dialogs.showMessageDialog("Emmä osaa tehä tätä");
+		Dialogs.showMessageDialog("Emmï¿½ osaa tehï¿½ tï¿½tï¿½");
     }
 	@FXML void handleApua() {
 		apuja();
@@ -28,8 +33,8 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
     	ModalController.showModal(PaaikkunaGUIController.class.getResource("BiljardiGUIView.fxml"), "Pelihistoria", null, "");
 	}	
 	@FXML void handleLisaaJasen() {
-    	Dialogs.showMessageDialog("Emmä osaa tehä tätä");
-    	//Dialogs.showMessageDialog("Emmä osaa lisästä vielä");
+    	Dialogs.showMessageDialog("Emmï¿½ osaa tehï¿½ tï¿½tï¿½");
+    	//Dialogs.showMessageDialog("Emmï¿½ osaa lisï¿½stï¿½ vielï¿½");
     }
     @FXML void handleLopeta() {
     	Platform.exit();

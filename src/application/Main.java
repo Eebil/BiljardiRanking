@@ -6,6 +6,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
 
+/**
+ * @author eewerant
+ * @version 11.3.2019
+ *
+ */
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
@@ -20,6 +25,9 @@ public class Main extends Application {
 		}
 	}
 	
+	/**
+	 * @param args ei käytössä
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}

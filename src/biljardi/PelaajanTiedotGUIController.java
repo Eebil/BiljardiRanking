@@ -6,6 +6,11 @@ import fi.jyu.mit.fxgui.ModalControllerInterface;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
+/**
+ * @author eewerant
+ * @version 11.3.2019
+ *
+ */
 public class PelaajanTiedotGUIController implements ModalControllerInterface<String> {
 
 	@FXML private Button tallennaJaPoistu;
@@ -17,12 +22,12 @@ public class PelaajanTiedotGUIController implements ModalControllerInterface<Str
 
 
 	@FXML void handlePoistaJasen() {
-		Dialogs.showQuestionDialog("ui juma", "POISTETAANKO X JÄSEN?", "VEKS!", "Ei sitenkään..");
+		Dialogs.showQuestionDialog("ui juma", "POISTETAANKO X Jï¿½SEN?", "VEKS!", "Ei sitenkï¿½ï¿½n..");
     }
 
     @FXML void handleTallennaJaPoistu() {
     	tallenna();
-    	// ModalController.closeStage(tallennaJaPoistu); -- koittaa varmaan sulkea yhtäaikaa dialogin kans
+    	// ModalController.closeStage(tallennaJaPoistu); -- koittaa varmaan sulkea yhtï¿½aikaa dialogin kans
     }
 
 
@@ -55,10 +60,10 @@ public class PelaajanTiedotGUIController implements ModalControllerInterface<Str
 		
 	}
    /**
-    * hakee pelaajan henkilökohtaisen pelihistorian
+    * hakee pelaajan henkilï¿½kohtaisen pelihistorian
     */
 	private void haePelihistoria() {
-		// Hae myöhemmin tähän pelaajan henkilökohtainen pelihistoria
+		// Hae myï¿½hemmin tï¿½hï¿½n pelaajan henkilï¿½kohtainen pelihistoria
 		ModalController.showModal(PaaikkunaGUIController.class.getResource("Pelihistoria.fxml"), "Pelihistoria", null, "");		
 	}
 	
