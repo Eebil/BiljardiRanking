@@ -48,6 +48,9 @@ src/biljardi/BiljardiMain.java = ohjelman käynnistävä pääluokka
 src/biljardi/PelaajanTiedotGUIController.java = kontrolleri pelaajan tiedoille
 src/biljardi/UusiPeliGUIController.java = Uuden pelin rekisteröimiseen tarkoitettu kontrolleri
 
+src/vaihe5/jasen.java = jäsen-luokan koodi ja käsittelijä
+src/vaihe5/jasenet.java = jasenet taulukkoon organisoiva luokka
+
 
 
 
