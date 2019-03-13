@@ -30,7 +30,7 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 
     }
     @FXML void handleAvaa() {
-    	ModalController.showModal(PaaikkunaGUIController.class.getResource("BiljardiGUIView.fxml"), "Pelihistoria", null, "");
+    	ModalController.showModal(PaaikkunaGUIController.class.getResource("BiljardiGUIView.fxml"), "Liigan nimi", null, "");
 	}	
 	@FXML void handleLisaaJasen() {
     	Dialogs.showMessageDialog("Emm� osaa teh� t�t�");
@@ -72,6 +72,26 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 	}
     
  //-----------------------------------------------------------
+	
+	/*
+	*
+     * @return palauttaa onko tallennettu ja voiko turvallisesti sulkea ohjelman
+     
+    public boolean voikoSulkea() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+    
+    **
+     * avaa tiedoston kerhon luettavaksi TODO: koko paska
+     * @return voiko avata
+     
+    public boolean avaa() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+    */
+    
     /**
      * Avaa TIM-suunnitelmasivun
      * 
