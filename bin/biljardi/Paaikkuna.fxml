@@ -97,7 +97,7 @@
           <RowConstraints maxHeight="176.0" minHeight="10.0" prefHeight="158.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ListChooser onMouseClicked="#handlePelaajanTiedot" prefHeight="284.0" prefWidth="216.0" rivit="1. |MAHTI MAHTURI&#9;&#9;|3102&#10;2. |JESSE JEPUTIN&#9;&#9;&#9;|3001&#10;3. |ANSKI PANSKI&#9;&#9;&#9;|2950&#10;4. |AINO PAMPELI&#9;&#9;&#9;|2890&#10;5. |KIRKONPOLTTAJA666 &#9;|2600&#10;7. |Otto Lonkero&#9;&#9;&#9;|2500&#10;8. |Mörö Kölli&#9;&#9;&#9;&#9;|2102&#10;" GridPane.rowIndex="1" />
+            <ListChooser fx:id="rankingLista" nollataanko="true" onMouseClicked="#handlePelaajanTiedot" prefHeight="284.0" prefWidth="216.0" rivit="1. |MAHTI MAHTURI&#9;&#9;|3102&#10;2. |JESSE JEPUTIN&#9;&#9;&#9;|3001&#10;3. |ANSKI PANSKI&#9;&#9;&#9;|2950&#10;4. |AINO PAMPELI&#9;&#9;&#9;|2890&#10;5. |KIRKONPOLTTAJA666 &#9;|2600&#10;7. |Otto Lonkero&#9;&#9;&#9;|2500&#10;8. |Mörö Kölli&#9;&#9;&#9;&#9;|2102&#10;" GridPane.rowIndex="1" />
             <GridPane>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

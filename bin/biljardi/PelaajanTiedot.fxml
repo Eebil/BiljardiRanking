@@ -58,12 +58,12 @@
                   <Insets left="40.0" />
                </GridPane.margin>
             </Label>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField editable="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField editable="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="pelaajaNimi" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="pelaajaRanking" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="pelaajaVuosikurssi" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="pelaajaElo" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="pelaajaPelatut" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="PelaajaWL" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Button mnemonicParsing="false" onAction="#handlePelihistoria" text="Pelihistoria" GridPane.rowIndex="7">
                <GridPane.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

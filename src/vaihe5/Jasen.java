@@ -44,6 +44,37 @@ public class Jasen {
         this.nimi = "Mahti Mahturi";
         this.vuosikurssi = 1690;
     }
+    /**
+     * 
+     * @return palauttaa jäsenen id-numeron
+     */
+    public int getId() {
+		return id;
+	}
+    
+    public int getRanking() {
+    	return ranking;
+    }
+    
+    public int getElo() {
+    	return elo;
+    }
+    
+    public String getNimi() {
+    	return nimi;
+    }
+    public int getVuosikurssi() {
+    	return vuosikurssi;
+    }
+    public int getPelatut() {
+    	return pelatut;
+    }
+    public int getVoitot() {
+    	return voitot;
+    }
+    public int getHaviot() {
+    	return haviot;
+    }
 
     /**
      * @param out tietovirta
@@ -78,5 +109,7 @@ public class Jasen {
         mahti.tulosta(System.out);
         
     }
+
+	
 
 }
