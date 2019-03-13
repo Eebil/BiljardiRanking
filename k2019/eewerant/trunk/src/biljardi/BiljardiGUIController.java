@@ -50,5 +50,9 @@ public class BiljardiGUIController implements ModalControllerInterface<String> {
 		Dialogs.showMessageDialog("ei voida");
 		
 	}
+
+    
+
+    
 	
 }
