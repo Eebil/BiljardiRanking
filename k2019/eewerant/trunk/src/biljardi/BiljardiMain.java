@@ -1,9 +1,9 @@
 package biljardi;
 
 import javafx.application.Application;
-// import javafx.application.Platform;
+import javafx.application.Platform;
 import javafx.stage.Stage;
-// import vaihe5.Biljardi;
+import vaihe5.Biljardi;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.fxml.FXMLLoader;
@@ -21,19 +21,21 @@ public class BiljardiMain extends Application {
         try {
             FXMLLoader ldr = new FXMLLoader(getClass().getResource("Paaikkuna.fxml"));
             final Pane root = ldr.load();
-          // tulee vasta myöhemmin final PaaikkunaGUIController biljardiCtrl = (PaaikkunaGUIController) ldr.getController(); 
+            final PaaikkunaGUIController biljardiCtrl = (PaaikkunaGUIController) ldr.getController(); 
             
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("biljardi.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.setTitle("Biljardi");
-          //  Biljardi biljardiRanking = new Biljardi();
             
-            //     primaryStage.setOnCloseRequest((event) -> {
-              //  if (!biljardiCtrl.voikoSulkea()) event.consume();
-            //    });
+            Biljardi biljardiRanking = new Biljardi();
+            biljardiCtrl.setRanking(biljardiRanking);
+            
+                primaryStage.setOnCloseRequest((event) -> {
+               if (!biljardiCtrl.voikoSulkea()) event.consume();
+               });
             primaryStage.show();
-          //  if (!biljardiCtrl.avaa() ) Platform.exit();
+           if (!biljardiCtrl.avaa() ) Platform.exit();
         } catch(Exception e) {
             e.printStackTrace();
         }

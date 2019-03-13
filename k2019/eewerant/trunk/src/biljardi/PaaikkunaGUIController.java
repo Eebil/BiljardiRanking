@@ -7,11 +7,14 @@ import java.net.URISyntaxException;
 
 
 import fi.jyu.mit.fxgui.Dialogs;
+import fi.jyu.mit.fxgui.ListChooser;
 import fi.jyu.mit.fxgui.ModalController;
 import fi.jyu.mit.fxgui.ModalControllerInterface;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import vaihe5.Biljardi;
+import vaihe5.Jasen;
 
 /**
  * @author eewerant
@@ -21,6 +24,7 @@ import javafx.scene.control.Button;
 public class PaaikkunaGUIController implements ModalControllerInterface<String> {
 
 	@FXML private Button Poistu;
+	@FXML private ListChooser<Jasen> rankingLista;
 
 	@FXML void handleHae() {
 		Dialogs.showMessageDialog("Emm� osaa teh� t�t�");
@@ -33,17 +37,20 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
     	ModalController.showModal(PaaikkunaGUIController.class.getResource("BiljardiGUIView.fxml"), "Liigan nimi", null, "");
 	}	
 	@FXML void handleLisaaJasen() {
-    	Dialogs.showMessageDialog("Emm� osaa teh� t�t�");
+		lisaaJasen();
+    	//Dialogs.showMessageDialog("Emm� osaa teh� t�t�");
     	//Dialogs.showMessageDialog("Emm� osaa lis�st� viel�");
     }
-    @FXML void handleLopeta() {
+    
+	@FXML void handleLopeta() {
     	Platform.exit();
     }
     @FXML void handlePelihistoria() {
     	ModalController.showModal(PaaikkunaGUIController.class.getResource("Pelihistoria.fxml"), "Pelihistoria", null, "");
     }
-    @FXML void handleTietoja() {;
-    	ModalController.showModal(PaaikkunaGUIController.class.getResource("TietojaGUIView.fxml"), "Tietoja", null, "");
+    @FXML void handleTietoja() {
+    	ModalController.showModal(PaaikkunaGUIController.class.getResource("TietojaGUIView.fxml"), "Tietoja", null, "" );
+    	
     }
     @FXML void handleUusiPeli() {
     	ModalController.showModal(PaaikkunaGUIController.class.getResource("UusiPeli.fxml"), "Uusi Peli", null, "");
@@ -52,7 +59,8 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
     	 ModalController.closeStage(Poistu);
     }
     @FXML void handlePelaajanTiedot() {
-    	ModalController.showModal(PaaikkunaGUIController.class.getResource("PelaajanTiedot.fxml"), "Pelaajan tiedot", null, "");
+    	naytaPelaajanTiedot();
+    	
     }
 
 	@Override
@@ -72,25 +80,60 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 	}
     
  //-----------------------------------------------------------
+	private Biljardi biljardi;
 	
-	/*
+	
+	/**
 	*
      * @return palauttaa onko tallennettu ja voiko turvallisesti sulkea ohjelman
-     
+     */
     public boolean voikoSulkea() {
         // TODO Auto-generated method stub
-        return false;
+        return true;
     }
     
-    **
+    /**
      * avaa tiedoston kerhon luettavaksi TODO: koko paska
      * @return voiko avata
-     
+     */
     public boolean avaa() {
         // TODO Auto-generated method stub
-        return false;
+        return true;
     }
-    */
+    /**
+     * asettaa kontrollerille biljardi-otuksen
+     * @param biljardi-otus
+     */
+    public void setRanking(Biljardi biljardi) {
+		this.biljardi = biljardi;
+		
+	}
+	 private void lisaaJasen() {
+			Jasen uusi = new Jasen();
+			if (biljardi.getLkm() % 2 == 0) uusi.taytaAnski();
+			else uusi.taytaMahti();
+			uusi.rekisteroi();
+			biljardi.lisaa(uusi);
+			paivita(uusi.getId());
+	 }
+    
+    private void paivita(int idNro) {
+    	rankingLista.clear();
+    	
+    	// int index = 0;
+        for (int i = 0; i < biljardi.getLkm(); i++) {
+        	Jasen jasen = biljardi.annaJasen(i);
+        //	if (jasen.getId() == idNro) index = i;
+        	rankingLista.add(String.format("%3d %20s %20d", jasen.getRanking(), jasen.getNimi(), jasen.getElo()), jasen);
+       }
+        // rankingLista.setSelectedIndex(index);
+    }
+    
+    private void naytaPelaajanTiedot() {
+    	Jasen jasen = rankingLista.getSelectedObject();
+    	ModalController.showModal(PaaikkunaGUIController.class.getResource("PelaajanTiedot.fxml"), "Pelaajan tiedot", null, jasen);
+    }
+    
     
     /**
      * Avaa TIM-suunnitelmasivun
@@ -107,5 +150,6 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
              return;
          }
      }
+	
     
 }
