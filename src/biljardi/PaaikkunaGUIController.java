@@ -103,7 +103,7 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
     }
     /**
      * asettaa kontrollerille biljardi-otuksen
-     * @param biljardi-otus
+     * @param biljardi bilis olio
      */
     public void setRanking(Biljardi biljardi) {
 		this.biljardi = biljardi;
