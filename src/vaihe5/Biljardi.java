@@ -11,6 +11,7 @@ package vaihe5;
 public class Biljardi {
     
     private final Jasenet jasenet = new Jasenet(); 
+    private final Pelihistoria pelihistoria = new Pelihistoria();
 
     /**
      * @param j jäsenistöön lisättävä jäsen
@@ -33,6 +34,7 @@ public class Biljardi {
     public Jasen annaJasen(int i) {
         return jasenet.anna(i);
     }
+    
     
     /**
      * 

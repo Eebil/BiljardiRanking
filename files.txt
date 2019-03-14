@@ -51,6 +51,9 @@ src/biljardi/UusiPeliGUIController.java = Uuden pelin rekisteröimiseen tarkoite
 src/vaihe5/Jasen.java = jäsen-luokan koodi ja käsittelijä
 src/vaihe5/Jasenet.java = jasenet taulukkoon organisoiva luokka
 src/vaihe5/Biljardi.java = Rankingin kokoava luokka ennen käyttöliittymää
+src/vaihe5/Peli.java = yhden pelin käsittelevä luokka
+src/vaihe5/Pelihistoria.java = pelit kokoava luokka toteutettu javan tietorakenteilla
+src/vaihe5/Yleiset.java = apu-luokka esim. random numeroiden käsittelyyn
 
 
 
