@@ -115,10 +115,10 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 			else uusi.taytaMahti();
 			uusi.rekisteroi();
 			biljardi.lisaa(uusi);
-			paivita(uusi.getId());
+			paivita();
 	 }
     
-    private void paivita(int idNro) {
+    private void paivita() {
     	rankingLista.clear();
     	
     	// int index = 0;
@@ -129,9 +129,14 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
        }
         // rankingLista.setSelectedIndex(index);
     }
+    
+    /**
+     * Avataan uuden pelin kontrolleri, jolle annetaan biljardi-olio pelin tuloksen rekisteröimiseksi
+     */
     public void avaaUusiPeli() {
     	
     	ModalController.showModal(PaaikkunaGUIController.class.getResource("UusiPeli.fxml"), "Uusi Peli", null, biljardi);
+    	paivita();
     }
     
     private void naytaPelaajanTiedot() {

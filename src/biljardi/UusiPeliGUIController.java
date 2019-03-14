@@ -23,7 +23,7 @@ public class UusiPeliGUIController implements ModalControllerInterface<Biljardi>
 
     @FXML void handleOk() {
     	lisaaTestipeli();
-    	Dialogs.showMessageDialog("ei viel� kyky� rekister�id� pelej�");
+    	//Dialogs.showMessageDialog("ei viel� kyky� rekister�id� pelej�");
     }
     @FXML void handlePeruuta() {
     	ModalController.closeStage(Peruuta);
@@ -39,18 +39,26 @@ public class UusiPeliGUIController implements ModalControllerInterface<Biljardi>
 		
 	}
 	@Override
-	public void setDefault(Biljardi arg0) {
-		// TODO Auto-generated method stub
+	public void setDefault(Biljardi bilis) {
+		this.biljardi = bilis;
 		
 	}
 
 	
+
 //======================================================================================================
 	
+	
+	private Biljardi biljardi;
+	
+	/**
+	 * Testiohjelma jolla lisätään yksi pelattu peli ja sen tulos alempiin luokkiin
+	 */
 	public void lisaaTestipeli() {
-		Biljardi biljardi = getResult();
-		Jasen pelaaja1 = biljardi.annaJasen(0);
-		Jasen pelaaja2 = biljardi.annaJasen(1);
-		
+		Jasen pelaaja1 = biljardi.annaJasen(0); // Valitaan myöhemmin liukulistasta
+		Jasen pelaaja2 = biljardi.annaJasen(1); // Tämä myös
+		Boolean tulos = false; // myöhemmin määräytyy radiobuttonilla. Muista laittaa joku herja, jos radiobuttonia ei ole painettu
+		biljardi.pelaa(pelaaja1, pelaaja2, tulos);
+		Dialogs.showMessageDialog("Jee, se onnistui!");
 	}
 }

@@ -48,43 +48,75 @@ public class Jasen {
     }
     /**
      * 
-     * @return palauttaa j�senen id-numeron
+     * @return palauttaa j�senen id-numeron
      */
     public int getId() {
 		return id;
 	}
     
+    /**
+     * @return palauttaa rankingin
+     */
     public int getRanking() {
     	return ranking;
     }
     
+    /**
+     * @return palauttaa elon
+     */
     public int getElo() {
     	return elo;
     }
     
+    /**
+     * @return palauttaa nimen
+     */
     public String getNimi() {
     	return nimi;
     }
+
+    /**
+     * @return palauttaa vuosikurssin
+     */
     public int getVuosikurssi() {
     	return vuosikurssi;
     }
+    /**
+     * @return palauttaa pelatut pelit
+     */
     public int getPelatut() {
     	return pelatut;
     }
+    /**
+     * @return palauttaa voitetut pelit
+     */
     public int getVoitot() {
     	return voitot;
     }
+    /**
+     * @return palauttaa tappioy
+     */
     public int getHaviot() {
     	return haviot;
     }
     
+    /**
+     * asettaa elon
+     * @param elo elo joka laitetaan
+     */
     public void setElo(int elo) {
     	this.elo = elo;
     }
+    /**
+     * lisä yhden voiton sekä pelatun pelin
+     */
     public void lisaaVoitto() {
     	voitot++;
     	pelatut++;
     }
+    /**
+     * lisää yhden tappion sekä pelatun pelin
+     */
     public void lisaaHavio() {
     	haviot++;
     	pelatut++;

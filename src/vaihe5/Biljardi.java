@@ -35,6 +35,17 @@ public class Biljardi {
         return jasenet.anna(i);
     }
     
+    /**
+     * Lisätään uusi peli rekisteriin kahden pelaajan välillä
+     * @param p1 pelaaja 1
+     * @param p2 pelaaja 2
+     * @param tulos true, jos 1 voitti, false jos 2 voitti
+     */
+    public void pelaa(Jasen p1, Jasen p2, Boolean tulos) {
+        pelihistoria.lisaa(p1.getId(), p2.getId(), tulos, p1.getNimi(), p2.getNimi());
+        jasenet.laskeTulos(p1, p2, tulos);
+    }
+    
     
     /**
      * 

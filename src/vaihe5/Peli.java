@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * luokka osaa luoda uuden pelin kahden pelin välille ja tietää sen ajan
+ * luokka osaa luoda uuden pelin kahden pelin vï¿½lille ja tietï¿½ï¿½ sen ajan
  * @author eewerant
  *
  */
@@ -17,51 +17,51 @@ public class Peli {
 	private static int pelilaskuri = 0;
 	
 	private final Date pvm = new Date();
-	private Jasen p1;
-	private Jasen p2;
-	private int pelinId;
+	private int p1Id;
+	private int p2Id;
+	private String p1Nimi;
+	private String p2Nimi;
+	@SuppressWarnings("unused") //TODO POISTA JOS EI TARVITAKKAAN
+    private int pelinId;
 	private Boolean tulos;
 	
 	
 
 	/**
-	 * Luodaan uusi peli kahden pelaajan välille
+	 * Luodaan uusi peli kahden pelaajan vï¿½lille
 	 * @param p1 Pelaaja 1 Jaasen luokasta
 	 * @param p2 Pelaaja 2 Jasen luokasta
 	 * @param tulos pelin tulos
+	 * @param p1Nimi pelaaja1 nimi
+	 * @param p2Nimi pelaaja 2 nimi
 	 */
-	public Peli(Jasen p1, Jasen p2, Boolean tulos) {
-		this.p1 = p1;
-		this.p2 = p2;
+	public Peli(int p1, int p2, Boolean tulos, String p1Nimi, String p2Nimi) {
+	    this.p1Nimi = p1Nimi;
+	    this.p2Nimi = p2Nimi;
+		this.p1Id = p1;
+		this.p2Id = p2;
 		this.pelinId = pelilaskuri;
 		this.tulos = tulos;
+		pelilaskuri++;
 		
 	}
 	
-	public Jasen getP1() {
-		return p1;
+	/**
+	 * @return palauttaa pelaaja 1 idn
+	 */
+	public int getP1Id() {
+		return p1Id;
 	}
 	
-	public Jasen getP2() {
-		return p2;
-	}
 	/**
-	 * pelataan peli ja muutetaan pelaajien atribuutteja sen mukaisesti
+	 * @return palauttaa pelaaja 2 idn
 	 */
-	public void pelaa() {
-		if (tulos) {
-			p1.setElo(p1.getElo() + 20);
-			p2.setElo(p2.getElo() - 20);
-			p1.lisaaVoitto();
-			p2.lisaaHavio();
-		}
-		else {
-			p1.setElo(p1.getElo() - 20);
-			p2.setElo(p2.getElo() + 20);
-			p2.lisaaVoitto();
-			p1.lisaaHavio();
-		}
+	public int getP2Id() {
+		return p2Id;
 	}
+
+		
+	
 	/**
 	 * tulsotaa pelin osallistujat ja tuloksen valittuun tietovirtaan
 	 * @param os tietovorta mihin tulostetaan
@@ -71,19 +71,20 @@ public class Peli {
 		if (tulos) stulos = "W - L";
 		else stulos = "L - W";
 		SimpleDateFormat date = new SimpleDateFormat("E dd.MM.yyyy 'klo:' HH.mm");
-		os.println(String.format("%40s      %-5s      %24s" , (p1.getNimi() + " - " + p2.getNimi()), stulos, date.format(pvm)));
+		os.println(String.format("%40s      %-5s      %24s" , (p1Nimi + " - " + p2Nimi), stulos, date.format(pvm)));
 	}
 	
 
 	/**
-	 * @param args
+	 * testipÃ¤Ã¤ohjelma Peli-luokalle
+	 * @param args ei kÃ¤ytÃ¶ssÃ¤
 	 */
 	public static void main(String[] args) {
 		Jasen anski = new Jasen(); Jasen mahti = new Jasen();
 		anski.taytaAnski(); mahti.taytaMahti();
 		anski.rekisteroi(); mahti.rekisteroi();
-		Peli testipeli = new Peli(anski , mahti, true);
-		testipeli.pelaa();
+		Peli testipeli = new Peli(anski.getId() , mahti.getId(), true, anski.getNimi(), mahti.getNimi());
+		// testipeli.pelaa();
 		testipeli.tulosta(System.out);
 		
 	}

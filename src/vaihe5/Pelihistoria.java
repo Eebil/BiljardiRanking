@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * luokka pelien säilyttämistä varten
+ * luokka pelien sï¿½ilyttï¿½mistï¿½ varten
  * @author eewerant
  *
  */
@@ -19,33 +19,44 @@ public class Pelihistoria implements Iterable<Peli> {
 	
 	
 	/**
-	 * iteraattori pelien läpikäymiseen. työn alla
+	 * iteraattori pelien lï¿½pikï¿½ymiseen. tyï¿½n alla
 	 */
 	@Override
 	public Iterator<Peli> iterator() {
 		return pelit.iterator();
 	}
+
 	
-	public void lisaa(Peli peli) {
-		pelit.add(peli);
+	/**
+	 * LisÃ¤tÃ¤Ã¤n uusi peli rekisteriiin
+	 * @param p1Id pelaajan 1 Id
+	 * @param p2Id Pelaajan 2 Id
+	 * @param tulos True, jos p1 voitti, false jos p2
+	 * @param p1Nimi pelaaja 1 Nimi
+	 * @param p2Nimi pelaaja 2 Nimi
+	 */
+	public void lisaa(int p1Id, int p2Id, Boolean tulos, String p1Nimi, String p2Nimi) {
+	    Peli uusipeli = new Peli(p1Id, p2Id, tulos, p1Nimi, p2Nimi);
+	    pelit.add(uusipeli);
 	}
 	
 	/**
 	 * hakee kaikki pelit jossa haettava pelaaja on ollut osallisena
-	 * @param kenen Kenen pelejä haetaan
+	 * @param kenen Kenen pelejï¿½ haetaan
 	 * @return kaikki pelit jossa pelaaja on ollut osallisena
 	 */
 	public List<Peli> haePelit(Jasen kenen) {
 		List<Peli> hakijanPelit = new ArrayList<Peli>();
 		for (Peli peli: pelit) {
-			if (peli.getP1().getId() == kenen.getId() || peli.getP2().getId() == kenen.getId() ) hakijanPelit.add(peli);
+			if (peli.getP1Id() == kenen.getId() || peli.getP2Id() == kenen.getId() ) hakijanPelit.add(peli);
 		}
 		return hakijanPelit;
 		
 	}
 
 	/**
-	 * @param args
+	 * testipÃ¤Ã¤ohjelma pelihistoria-luokalle
+	 * @param args ei kÃ¤ytÃ¶ssÃ¤
 	 */
 	public static void main(String[] args) {
 		Pelihistoria testihistoria = new Pelihistoria();
@@ -53,15 +64,12 @@ public class Pelihistoria implements Iterable<Peli> {
 		Jasen anski = new Jasen(); Jasen mahti = new Jasen();
 		anski.taytaAnski(); mahti.taytaMahti();
 		anski.rekisteroi(); mahti.rekisteroi();
-		Peli testipeli1 = new Peli(anski , mahti, true);
-		Peli testipeli2 = new Peli(anski, mahti, false);
-		Peli testipeli3 = new Peli(mahti, anski, false);
-		Peli testipeli4 = new Peli(mahti, mahti, false);
+		testihistoria.lisaa(anski.getId() , mahti.getId(), true, anski.getNimi(), mahti.getNimi());
+		testihistoria.lisaa(anski.getId(), mahti.getId(), false, anski.getNimi(), mahti.getNimi());
+		testihistoria.lisaa(mahti.getId(), anski.getId(), false, mahti.getNimi(), anski.getNimi());
+		testihistoria.lisaa(mahti.getId(), mahti.getId(), false, mahti.getNimi(), mahti.getNimi());
 		
-		testihistoria.lisaa(testipeli1);
-		testihistoria.lisaa(testipeli2);
-		testihistoria.lisaa(testipeli3);
-		testihistoria.lisaa(testipeli4);
+
 		
 		System.out.println("-.-.-.-.-.-.-.Testataanharrastuksia-.-..--.");
 		

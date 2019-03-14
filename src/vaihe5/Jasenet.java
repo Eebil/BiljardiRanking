@@ -36,6 +36,40 @@ public class Jasenet {
     }
     
     /**
+     * Hakee jäsenen nimen id-numeron perusteella
+     * @param id id jonka nimenhaltijaa etsitään
+     * @return palauttaa etsityn idn omaajan nimen
+     */
+    public String getNimiId(int id) {
+        for (int i = 0; i < lkm; i++) {
+            if (alkiot[i].getId() == id) return alkiot[i].getNimi();            
+        }
+        return "virhe";
+    }
+    
+    /**
+     * lasketaan uudet Elo-pisteet pelaajille pelatun pelin jälkeen, sekä lisätään havio/voitti + pelattu peli asianmukaisesti
+     * @param p1 pelaaja 1
+     * @param p2 pelaaja 2
+     * @param tulos true jos p1 voitti false jos p2 voitti
+     */
+    public void laskeTulos(Jasen p1, Jasen p2, Boolean tulos) {
+        if (tulos) {
+            p1.setElo(p1.getElo() + 20); //TODO: IMPLEMENTOI ELO-LASKURI
+            p2.setElo(p2.getElo() - 20);
+            p1.lisaaVoitto();
+            p2.lisaaHavio();
+        }
+        else {
+            p1.setElo(p1.getElo() - 20);
+            p2.setElo(p2.getElo() + 20);
+            p2.lisaaVoitto();
+            p1.lisaaHavio();
+        } 
+
+    }
+    
+    /**
      * @param i indeksi
      * @return alkion indeksin kohdalta
      * @throws IndexOutOfBoundsException heittää virhettä jos väärä indeksi
