@@ -33,16 +33,18 @@ public class Jasen {
      * täyttää jasenelle tiedot
      */
     public void taytaAnski() {
-        this.nimi = "Anski Panski";
-        this.vuosikurssi = 2015;               
+        this.nimi = "Anski Panski " + Yleiset.arpoja(1000, 4000);
+        this.vuosikurssi = 2015;
+        this.elo = Yleiset.arpoja(1000, 3000);
     }
     
     /**
      * töyttää mahdilla
      */
     public void taytaMahti() {
-        this.nimi = "Mahti Mahturi";
+        this.nimi = "Mahti Mahturi " + Yleiset.arpoja(1000, 4000);
         this.vuosikurssi = 1690;
+        this.elo = Yleiset.arpoja(1000, 3000);
     }
     /**
      * 
@@ -74,6 +76,18 @@ public class Jasen {
     }
     public int getHaviot() {
     	return haviot;
+    }
+    
+    public void setElo(int elo) {
+    	this.elo = elo;
+    }
+    public void lisaaVoitto() {
+    	voitot++;
+    	pelatut++;
+    }
+    public void lisaaHavio() {
+    	haviot++;
+    	pelatut++;
     }
 
     /**

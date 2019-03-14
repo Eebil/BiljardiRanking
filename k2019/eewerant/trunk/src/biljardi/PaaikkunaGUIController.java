@@ -53,7 +53,8 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
     	
     }
     @FXML void handleUusiPeli() {
-    	ModalController.showModal(PaaikkunaGUIController.class.getResource("UusiPeli.fxml"), "Uusi Peli", null, "");
+    	avaaUusiPeli();
+    	
     }
     @FXML void handlePoistu() {
     	 ModalController.closeStage(Poistu);
@@ -127,6 +128,10 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
         	rankingLista.add(String.format("%3d %20s %20d", jasen.getRanking(), jasen.getNimi(), jasen.getElo()), jasen);
        }
         // rankingLista.setSelectedIndex(index);
+    }
+    public void avaaUusiPeli() {
+    	
+    	ModalController.showModal(PaaikkunaGUIController.class.getResource("UusiPeli.fxml"), "Uusi Peli", null, biljardi);
     }
     
     private void naytaPelaajanTiedot() {
