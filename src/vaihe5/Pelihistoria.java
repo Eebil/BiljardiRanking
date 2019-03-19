@@ -41,6 +41,17 @@ public class Pelihistoria implements Iterable<Peli> {
 	}
 	
 	/**
+	 * haetaan koko pelihistoria
+	 * @return kaikki liigassa pelatut pelit
+	 */
+	public List<Peli> haeKaikkiPelit() {
+	    List<Peli> kaikkiPelit = new ArrayList<Peli>();
+	    for (Peli peli: pelit)
+	        kaikkiPelit.add(peli);
+	    return kaikkiPelit;
+	}
+	
+	/**
 	 * hakee kaikki pelit jossa haettava pelaaja on ollut osallisena
 	 * @param kenen Kenen pelej� haetaan
 	 * @return kaikki pelit jossa pelaaja on ollut osallisena

@@ -59,6 +59,17 @@ public class Peli {
 	public int getP2Id() {
 		return p2Id;
 	}
+	/**
+	 * @return palauttaa merkkijonoesityksen pelistä
+	 */
+	@Override
+    public String toString() {
+	    String stulos = "";
+        if (tulos) stulos = "W - L";
+        else stulos = "L - W";
+        SimpleDateFormat date = new SimpleDateFormat("E dd.MM.yyyy 'klo:' HH.mm");
+        return String.format("%40s   |   %-5s   |   %24s" , (p1Nimi + " - " + p2Nimi), stulos, date.format(pvm));
+	}
 
 		
 	
@@ -66,12 +77,8 @@ public class Peli {
 	 * tulsotaa pelin osallistujat ja tuloksen valittuun tietovirtaan
 	 * @param os tietovorta mihin tulostetaan
 	 */
-	public void tulosta(PrintStream os) {
-		String stulos = "";
-		if (tulos) stulos = "W - L";
-		else stulos = "L - W";
-		SimpleDateFormat date = new SimpleDateFormat("E dd.MM.yyyy 'klo:' HH.mm");
-		os.println(String.format("%40s      %-5s      %24s" , (p1Nimi + " - " + p2Nimi), stulos, date.format(pvm)));
+	public void tulosta(PrintStream os) {		
+		os.println(toString());		
 	}
 	
 

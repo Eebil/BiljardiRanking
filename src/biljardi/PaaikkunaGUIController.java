@@ -4,7 +4,7 @@ import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-
+import java.util.List;
 
 import fi.jyu.mit.fxgui.Dialogs;
 import fi.jyu.mit.fxgui.ListChooser;
@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import vaihe5.Biljardi;
 import vaihe5.Jasen;
+import vaihe5.Peli;
 
 /**
  * @author eewerant
@@ -46,7 +47,8 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
     	Platform.exit();
     }
     @FXML void handlePelihistoria() {
-    	ModalController.showModal(PaaikkunaGUIController.class.getResource("Pelihistoria.fxml"), "Pelihistoria", null, "");
+        avaaPelihistoria();
+    	
     }
     @FXML void handleTietoja() {
     	ModalController.showModal(PaaikkunaGUIController.class.getResource("TietojaGUIView.fxml"), "Tietoja", null, "" );
@@ -119,7 +121,7 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 	 }
     
     private void paivita() {
-    	rankingLista.clear();
+    	rankingLista.clear(); //TODO: Laita nimet järjestykseen Elon mukaan
     	
     	// int index = 0;
         for (int i = 0; i < biljardi.getLkm(); i++) {
@@ -128,6 +130,14 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
         	rankingLista.add(String.format("%3d %20s %20d", jasen.getRanking(), jasen.getNimi(), jasen.getElo()), jasen);
        }
         // rankingLista.setSelectedIndex(index);
+    }
+    
+    /**
+     * avaa kontrollerin pelihistoria-näkymään
+     */
+    public void avaaPelihistoria() {
+        List<Peli> kokoPelihistoria = biljardi.annaPelihistoria();
+        ModalController.showModal(PaaikkunaGUIController.class.getResource("Pelihistoria.fxml"), "Pelihistoria", null, kokoPelihistoria);
     }
     
     /**
@@ -140,6 +150,7 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
     }
     
     private void naytaPelaajanTiedot() {
+        //TODO: Heitä tästä vielä pelihistoria pelaajan tiedot ikkunalle, jotta voidaan näyttää henkilökohtainen pelihistoria
     	Jasen jasen = rankingLista.getSelectedObject();
     	ModalController.showModal(PaaikkunaGUIController.class.getResource("PelaajanTiedot.fxml"), "Pelaajan tiedot", null, jasen);
     }

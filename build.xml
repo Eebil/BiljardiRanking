@@ -4,7 +4,7 @@
     <!--ANT 1.7 is required                                        -->
     <!--define folder properties-->
     <property name="dir.buildfile" value="."/>
-    <property name="dir.workspace" value="U:/eclipse/workspace"/>
+    <property name="dir.workspace" value="C:/Users/Liisa/eclipse-workspace"/>
     <property name="dir.jarfile" value="${dir.buildfile}"/>
     <target name="create_run_jar">
         <jar destfile="${dir.jarfile}/BiljardiRanking.jar" filesetmanifest="mergewithoutmain">
@@ -13,24 +13,24 @@
                 <attribute name="Class-Path" value="."/>
             </manifest>
             <fileset dir="${dir.jarfile}/bin"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ee410/eclipse/plugins/org.junit.jupiter.api_5.3.1.v20181005-1442.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ee410/eclipse/plugins/org.junit.jupiter.engine_5.3.1.v20181005-1442.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ee410/eclipse/plugins/org.junit.jupiter.migrationsupport_5.3.1.v20181005-1442.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ee410/eclipse/plugins/org.junit.jupiter.params_5.3.1.v20181005-1442.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ee410/eclipse/plugins/org.junit.platform.commons_1.3.1.v20181005-1442.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ee410/eclipse/plugins/org.junit.platform.engine_1.3.1.v20181005-1442.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ee410/eclipse/plugins/org.junit.platform.launcher_1.3.1.v20181005-1442.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ee410/eclipse/plugins/org.junit.platform.runner_1.3.1.v20181005-1442.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ee410/eclipse/plugins/org.junit.platform.suite.api_1.3.1.v20181005-1442.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ee410/eclipse/plugins/org.junit.vintage.engine_5.3.1.v20181005-1442.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ee410/eclipse/plugins/org.opentest4j_1.1.1.v20181005-1442.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ee410/eclipse/plugins/org.apiguardian_1.0.0.v20181005-1442.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ee410/eclipse/plugins/org.junit_4.12.0.v201504281640/junit.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ee410/eclipse/plugins/org.hamcrest.core_1.3.0.v20180420-1519.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ee410/eclipse/ohj2_library/Ali.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ee410/eclipse/ohj2_library/fxgui.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ee410/eclipse/ohj2_library/Graphics.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ee410/eclipse/ohj2_library/Music.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ec1812/eclipse/plugins/org.junit.jupiter.api_5.3.1.v20181005-1442.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ec1812/eclipse/plugins/org.junit.jupiter.engine_5.3.1.v20181005-1442.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ec1812/eclipse/plugins/org.junit.jupiter.migrationsupport_5.3.1.v20181005-1442.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ec1812/eclipse/plugins/org.junit.jupiter.params_5.3.1.v20181005-1442.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ec1812/eclipse/plugins/org.junit.platform.commons_1.3.1.v20181005-1442.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ec1812/eclipse/plugins/org.junit.platform.engine_1.3.1.v20181005-1442.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ec1812/eclipse/plugins/org.junit.platform.launcher_1.3.1.v20181005-1442.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ec1812/eclipse/plugins/org.junit.platform.runner_1.3.1.v20181005-1442.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ec1812/eclipse/plugins/org.junit.platform.suite.api_1.3.1.v20181005-1442.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ec1812/eclipse/plugins/org.junit.vintage.engine_5.3.1.v20181005-1442.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ec1812/eclipse/plugins/org.opentest4j_1.1.1.v20181005-1442.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ec1812/eclipse/plugins/org.apiguardian_1.0.0.v20181005-1442.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ec1812/eclipse/plugins/org.junit_4.12.0.v201504281640/junit.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/ec1812/eclipse/plugins/org.hamcrest.core_1.3.0.v20180420-1519.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/jar/Ali.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/jar/fxgui.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/jar/Graphics.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/jar/Music.jar"/>
         </jar>
     </target>
 </project>
