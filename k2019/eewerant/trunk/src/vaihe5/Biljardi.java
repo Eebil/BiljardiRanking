@@ -3,6 +3,8 @@
  */
 package vaihe5;
 
+import java.util.List;
+
 /**
  * @author eewerant
  * @version 13.3.2019
@@ -33,6 +35,22 @@ public class Biljardi {
      */
     public Jasen annaJasen(int i) {
         return jasenet.anna(i);
+    }
+    
+    /**
+     * @return palauttaa listan kaikista pelatuista peleistä
+     */
+    public List<Peli> annaPelihistoria() {
+        return pelihistoria.haeKaikkiPelit();
+    }
+    
+    /**
+     * hakee tietyn jäsenen kaikki pelit
+     * @param kenen kenen pelejä haetaan
+     * @return kaikki pelaajan pelit
+     */
+    public List<Peli> pelaajanPelihistoria(Jasen kenen) {
+        return pelihistoria.haePelit(kenen);
     }
     
     /**
