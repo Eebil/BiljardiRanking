@@ -1,5 +1,6 @@
 package vaihe5;
 
+
 /**
  * erilaista härpäkettä tietojen käsittelyyn
  * @author eewerant
@@ -21,3 +22,5 @@ public class Yleiset {
 	}
 
 }
+
+

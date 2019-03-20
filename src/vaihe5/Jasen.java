@@ -108,6 +108,13 @@ public class Jasen {
     	this.elo = elo;
     }
     /**
+     * asettaa tämänhetkisen sijoituksen rankingissa elon perusteella
+     * @param ranking monesko rankingissa
+     */
+    public void setRanking(int ranking) {
+        this.ranking = ranking;
+    }
+    /**
      * lisä yhden voiton sekä pelatun pelin
      */
     public void lisaaVoitto() {

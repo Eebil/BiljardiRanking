@@ -4,6 +4,9 @@ import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import fi.jyu.mit.fxgui.Dialogs;
@@ -119,16 +122,37 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 			biljardi.lisaa(uusi);
 			paivita();
 	 }
+	 
+	 /**
+	 * @author eewerant
+	 * @version 20.3.2019
+	 * Lajittelee jäsenet laskevaan järjestykseen elon perusteella
+	 */
+	public static class SortElo implements Comparator<Jasen> {
+
+	     @Override
+	     public int compare(Jasen o1, Jasen o2) {
+	         return o2.getElo() - o1.getElo();
+	     }
+	     
+	 }
     
     private void paivita() {
     	rankingLista.clear(); //TODO: Laita nimet järjestykseen Elon mukaan
-    	
+    	List<Jasen> lajittelu = new ArrayList<Jasen>();
     	// int index = 0;
         for (int i = 0; i < biljardi.getLkm(); i++) {
         	Jasen jasen = biljardi.annaJasen(i);
         //	if (jasen.getId() == idNro) index = i;
-        	rankingLista.add(String.format("%3d %20s %20d", jasen.getRanking(), jasen.getNimi(), jasen.getElo()), jasen);
+        	lajittelu.add(jasen);
        }
+        Collections.sort(lajittelu, new SortElo());
+        for (int i = 0; i < biljardi.getLkm(); i++) {
+            Jasen jasen = lajittelu.get(i);
+            jasen.setRanking(i + 1);
+            rankingLista.add(String.format("%3d %-20s %20d", jasen.getRanking(), jasen.getNimi(), jasen.getElo()), jasen);          
+        }
+        
         // rankingLista.setSelectedIndex(index);
     }
     
