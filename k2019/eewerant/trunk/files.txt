@@ -40,7 +40,7 @@ src/biljardi/PelaajanTiedot.fxml = Pelaajan tiedot muokata voi nimeä ja vuosiku
 src/biljardi/Pelihistoria.fxml = Pelihistoria
 src/biljardi/UusiPeli.fxml = Uuden pelin rekisteröimisikkuna
 src/biljardi/TietojaGUIView.fxml = Tietoikkunan dialogi
-src/biljardi/PelaajanTiedot.fxml = lisäämiseen tarvittava dialogi 
+src/biljardi/LisaaPelaaja.fxml = lisäämiseen tarvittava dialogi 
 
 src/biljardi/TietojaGUIController.java = tuleva controlleri titodialogille (ei vielä käyttöä)
 src/biljardi/PaaikkunaGUIController.java = pääikkunan kontrolleri
