@@ -92,6 +92,17 @@ public class Jasenet {
             System.out.println("kasvatetaan taulukon kokoa! koko nyt: " + alkiot.length);
             this.lisaa(lisattava);
       } 
+       
+    }
+    /**
+     * lisää jäsenistöön uuden jäsenen
+     * @param nimi nimi jolla luodaan
+     * @param vuosikurssi vuosikurssi jolla luodaan
+     */
+    public void lisaa(String nimi, int vuosikurssi) {
+        Jasen uusi = new Jasen(nimi, vuosikurssi);
+        uusi.rekisteroi();
+        this.lisaa(uusi);
     }
 
     /**
@@ -125,5 +136,7 @@ public class Jasenet {
         }
     
     }
+
+  
 
 }

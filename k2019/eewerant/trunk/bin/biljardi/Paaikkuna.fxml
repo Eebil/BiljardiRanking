@@ -15,29 +15,30 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="237.0" prefWidth="413.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biljardi.PaaikkunaGUIController">
+<BorderPane prefHeight="325.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biljardi.PaaikkunaGUIController">
    <left>
-      <GridPane prefHeight="159.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <GridPane prefHeight="299.0" prefWidth="235.0" BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="171.0" minWidth="10.0" prefWidth="150.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="85.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="68.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="89.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="173.0" minHeight="10.0" prefHeight="160.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="89.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" onAction="#handleUusiPeli" text="Uusi Peli">
+            <Button mnemonicParsing="false" onAction="#handleUusiPeli" text="Uusi Peli" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" top="60.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#handlePelihistoria" text="Pelihistoria" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" onAction="#handlePelihistoria" text="Pelihistoria" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
             </Button>
-            <GridPane GridPane.rowIndex="2">
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -46,23 +47,24 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField promptText="Hae pelaajaa">
-                     <GridPane.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </GridPane.margin>
-                  </TextField>
-                  <Button mnemonicParsing="false" onAction="#handleHae" text="Hae" GridPane.rowIndex="1">
+                  <Button mnemonicParsing="false" onAction="#handleHae" text="Hae">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Button>
                </children>
             </GridPane>
+            <TextField fx:id="hakuLaatikko" onAction="#handleHae" promptText="Hae pelaajaa">
+               <GridPane.margin>
+                  <Insets left="10.0" right="10.0" />
+               </GridPane.margin>
+            </TextField>
+            <ListChooser fx:id="hakuChooser" onMouseClicked="#handlePelaajanTiedot" prefWidth="117.0" rivit="ANSKIP PANSKI&#10;JEPPULI&#10;MAHTURIN MAHTI&#10;" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </left>
    <top>
-      <MenuBar prefHeight="24.0" prefWidth="370.0" BorderPane.alignment="CENTER">
+      <MenuBar prefHeight="24.0" prefWidth="572.0" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Tiedosto">
             <items>
@@ -88,7 +90,7 @@
       <HBox prefHeight="0.0" prefWidth="320.0" BorderPane.alignment="CENTER" />
    </bottom>
    <center>
-      <GridPane BorderPane.alignment="CENTER">
+      <GridPane prefHeight="286.0" prefWidth="372.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
         </columnConstraints>
@@ -97,7 +99,10 @@
           <RowConstraints maxHeight="176.0" minHeight="10.0" prefHeight="158.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ListChooser fx:id="rankingLista" nollataanko="true" onMouseClicked="#handlePelaajanTiedot" prefHeight="284.0" prefWidth="216.0" rivit="1. |MAHTI MAHTURI&#9;&#9;|3102&#10;2. |JESSE JEPUTIN&#9;&#9;&#9;|3001&#10;3. |ANSKI PANSKI&#9;&#9;&#9;|2950&#10;4. |AINO PAMPELI&#9;&#9;&#9;|2890&#10;5. |KIRKONPOLTTAJA666 &#9;|2600&#10;7. |Otto Lonkero&#9;&#9;&#9;|2500&#10;8. |Mörö Kölli&#9;&#9;&#9;&#9;|2102&#10;" GridPane.rowIndex="1" />
+            <ListChooser fx:id="rankingLista" nollataanko="true" onMouseClicked="#handlePelaajanTiedot" prefHeight="176.0" prefWidth="124.0" rivit="1. |MAHTI MAHTURI&#9;&#9;|3102&#10;2. |JESSE JEPUTIN&#9;&#9;&#9;|3001&#10;3. |ANSKI PANSKI&#9;&#9;&#9;|2950&#10;4. |AINO PAMPELI&#9;&#9;&#9;|2890&#10;5. |KIRKONPOLTTAJA666 &#9;|2600&#10;7. |Otto Lonkero&#9;&#9;&#9;|2500&#10;8. |Mörö Kölli&#9;&#9;&#9;&#9;|2102&#10;" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin></ListChooser>
             <GridPane>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -109,7 +114,7 @@
                <children>
                   <Label text="Ranking" textAlignment="CENTER">
                      <GridPane.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                      </GridPane.margin>
                   </Label>
                   <Label text="ELO" GridPane.columnIndex="1">
@@ -129,6 +134,6 @@
       </GridPane>
    </center>
    <right>
-      <VBox prefHeight="187.0" prefWidth="42.0" BorderPane.alignment="CENTER" />
+      <VBox prefHeight="284.0" prefWidth="45.0" BorderPane.alignment="CENTER" />
    </right>
 </BorderPane>
