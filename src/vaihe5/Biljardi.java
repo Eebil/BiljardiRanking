@@ -21,6 +21,14 @@ public class Biljardi {
     public void lisaa(Jasen j) {
         jasenet.lisaa(j);
     }
+    /**
+     * Lisätään uusi jäsen annetulla nimellä ja vuosikurssilla
+     * @param nimi jäsenen nimi
+     * @param vuosikurssi jäsenen vuosikurssi
+     */
+    public void lisaaJasen(String nimi, int vuosikurssi) {
+        jasenet.lisaa(nimi, vuosikurssi);
+    }
     
     /**
      * @return palauttaa jäsenten määrän

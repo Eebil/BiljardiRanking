@@ -9,13 +9,13 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import fi.jyu.mit.fxgui.Dialogs;
 import fi.jyu.mit.fxgui.ListChooser;
 import fi.jyu.mit.fxgui.ModalController;
 import fi.jyu.mit.fxgui.ModalControllerInterface;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import vaihe5.Biljardi;
 import vaihe5.Jasen;
 import vaihe5.Peli;
@@ -29,9 +29,13 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 
 	@FXML private Button Poistu;
 	@FXML private ListChooser<Jasen> rankingLista;
+    @FXML private TextField hakuLaatikko;
+    @FXML private ListChooser<Jasen> hakuChooser;
+
 
 	@FXML void handleHae() {
-		Dialogs.showMessageDialog("Emm� osaa teh� t�t�");
+	     haePelaajaa();
+		//Dialogs.showMessageDialog("Emm� osaa teh� t�t�");
     }
 	@FXML void handleApua() {
 		apuja();
@@ -115,13 +119,46 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 		
 	}
 	 private void lisaaJasen() {
-			Jasen uusi = new Jasen();
-			if (biljardi.getLkm() % 2 == 0) uusi.taytaAnski();
-			else uusi.taytaMahti();
-			uusi.rekisteroi();
-			biljardi.lisaa(uusi);
-			paivita();
+	    ModalController.showModal(PaaikkunaGUIController.class.getResource("LisaaPelaaja.fxml"), "Lisaa Pelaaja", null, biljardi);
+		paivita();
 	 }
+	 
+	 /**
+	 * verrataan hakulaatikkoon kirjoitettua tekstiä jäsenten nimiin ja laitetaan listaan osumat
+	 */
+	public void haePelaajaa() {
+	     hakuChooser.clear();
+	     List<Jasen> osumat = new ArrayList<Jasen>();
+	     String hakusana = "(?i:" + hakuLaatikko.getText().trim() + ".*)";
+	     System.out.println(hakusana);
+	     for (int i = 0 ; i < biljardi.getLkm(); i++) {
+	         Jasen j = biljardi.annaJasen(i);
+	         if (j.getNimi().matches(hakusana)) osumat.add(j);
+	     }
+	     
+	     Collections.sort(osumat, new SortNimi());
+	     for (int i = 0 ; i < osumat.size(); i++) {
+	         hakuChooser.add(osumat.get(i).getNimi(), osumat.get(i));
+	     }
+	 }
+	
+	/**
+	 * 
+	 * @author eewerant
+	 * @version 22.3.2019
+	 * Lajitellaan osumat nimen mukaan hash-coden avulla
+	 *
+	 */
+	public static class SortNimi implements Comparator<Jasen> {
+
+        @Override
+        public int compare(Jasen o1, Jasen o2) {
+            // TODO Auto-generated method stub
+            return o1.getNimi().hashCode() - o2.getNimi().hashCode();
+        }
+	    
+	    
+	}
 	 
 	 /**
 	 * @author eewerant
@@ -174,8 +211,11 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
     }
     
     private void naytaPelaajanTiedot() {
+        Jasen jasen;
         //TODO: Heitä tästä vielä pelihistoria pelaajan tiedot ikkunalle, jotta voidaan näyttää henkilökohtainen pelihistoria
-    	Jasen jasen = rankingLista.getSelectedObject();
+        //FIX: PASKA RATKASU JOKA EI TO*IMI KEKSI KEINO LAITTAA CHOOSERI PARAMETRINA
+    	    if (rankingLista.getSelectedObject() != null) {jasen = rankingLista.getSelectedObject();  paivita();}
+    	    else jasen = hakuChooser.getSelectedObject();
     	ModalController.showModal(PaaikkunaGUIController.class.getResource("PelaajanTiedot.fxml"), "Pelaajan tiedot", null, jasen);
     }
     

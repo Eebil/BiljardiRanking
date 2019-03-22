@@ -21,6 +21,23 @@ public class Jasen {
     private int ranking;
     
     /**
+     * Luo uuden jäsenen annetuilla parametreilla
+     * @param nimi tuotu nimi
+     * @param vuosikurssi tuotu vuosikurssi
+     */
+    public Jasen(String nimi, int vuosikurssi) {
+        this.nimi = nimi;
+        this.vuosikurssi = vuosikurssi;
+    }
+
+    /**
+     * tyhjä kunstruktori
+     */
+    public Jasen() {
+        // TODO Auto-generated constructor stub
+    }
+
+    /**
      * rekisteröi jäsenen ja antaa uniikin id:n
      */
     public void rekisteroi() {
