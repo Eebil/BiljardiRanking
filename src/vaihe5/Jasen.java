@@ -2,6 +2,8 @@ package vaihe5;
 
 import java.io.*;
 
+import fi.jyu.mit.ohj2.Mjonot;
+
 /**
  * @author eewerant
  * @version 11.3.2019
@@ -11,8 +13,9 @@ public class Jasen {
     
     private static int idLaskin = 1;
     
-    private String nimi;
+
     private int id;
+    private String nimi = "";
     private int vuosikurssi;
     private int elo = 1500;
     private int pelatut;
@@ -41,6 +44,8 @@ public class Jasen {
      * rekisteröi jäsenen ja antaa uniikin id:n
      */
     public void rekisteroi() {
+        // if (this.id <= idLaskin) idLaskin = this.id + 1; ei ehkä tähän
+        
         if (this.id != 0) return;
         this.id = idLaskin;
         idLaskin++;
@@ -118,6 +123,15 @@ public class Jasen {
     }
     
     /**
+     * setteri id-nu,eroa varten. asettaa laskurin oikeaan paikkaan jos ylittää sen
+     * @param id id joka asetetaan jäsenelle
+     */
+    public void setId(int id) {
+        this.id = id;
+        if (id >= idLaskin) idLaskin = id + 1;
+    }
+    
+    /**
      * asettaa elon
      * @param elo elo joka laitetaan
      */
@@ -145,18 +159,33 @@ public class Jasen {
     	haviot++;
     	pelatut++;
     }
+    
+    @Override
+    public String toString() {
+        return (id + "|" + nimi + "|" + vuosikurssi + "|" + pelatut + "|" + voitot + "|" +  haviot + "|" + ranking);
+        
+    }
+    /**
+     * Asetetaan jäsenelle tiedot merkkijonosta
+     * @param rivi rivi josta tiedot haetaan
+     */
+    public void parse(String rivi) {
+        StringBuffer sb = new StringBuffer(rivi);
+        setId(Mjonot.erota(sb, '|', getId()));
+        nimi = Mjonot.erota(sb, '|', nimi);
+        vuosikurssi = Mjonot.erota(sb, '|', vuosikurssi);
+        pelatut = Mjonot.erota(sb, '|', pelatut);
+        voitot = Mjonot.erota(sb, '|', voitot);
+        haviot = Mjonot.erota(sb, '|', haviot);
+        ranking = Mjonot.erota(sb, '|', ranking);       
+    }
 
     /**
      * @param out tietovirta
      * tulostelee tiedot
      */
     public void tulosta(PrintStream out) {
-        out.println(String.format("%03d", id));
-        out.println("Nimi: " + nimi + " Vuosikurssi: " + vuosikurssi);
-        out.println("Elo: " + elo);
-        out.println("pelatut pelit: " + pelatut + " voitot: " + voitot + " häviöt " + haviot);
-        out.println("rankingi tällä hetkellä: " + ranking);
-        
+        out.println(toString());      
     }
     /**
      * @param args ei käytössä
