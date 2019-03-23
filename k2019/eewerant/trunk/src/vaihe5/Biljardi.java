@@ -3,6 +3,7 @@
  */
 package vaihe5;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -12,8 +13,8 @@ import java.util.List;
  */
 public class Biljardi {
     
-    private final Jasenet jasenet = new Jasenet(); 
-    private final Pelihistoria pelihistoria = new Pelihistoria();
+    private  Jasenet jasenet = new Jasenet(); 
+    private  Pelihistoria pelihistoria = new Pelihistoria();
 
     /**
      * @param j jäsenistöön lisättävä jäsen
@@ -72,7 +73,38 @@ public class Biljardi {
         jasenet.laskeTulos(p1, p2, tulos);
     }
     
+    /**
+     * tallennetaan tiedot tiedostoon
+     */
+    public void tallenna() {
+        jasenet.tallennaTiedostoon();
+        // pelihistoria.tallenna
+    }
     
+    /**
+     * @param tiedosto tiedostonnimi
+     */
+    public void lueTiedostosta(String tiedosto) {
+        this.jasenet = new Jasenet();
+        // this.pelihistoria = new Pelihistoria();
+        
+        setTiedosto(tiedosto);
+        jasenet.lueTiedostosta(tiedosto);
+    }
+    
+    /**
+     * asettaa tiedostojen nimet
+     * @param tiedosto nimi joka tuodaan
+     */
+    public void setTiedosto(String tiedosto) {
+        File dir = new File(tiedosto);
+        dir.mkdirs();
+        String hakemisto = "";
+        if (!tiedosto.isEmpty()) hakemisto = tiedosto + "/";
+        jasenet.setTiedostonNimi(hakemisto + "jasenet");
+       // pelihistoria.setTiedostonNimi(hakemisto + "pelihistoria");
+        
+    }
     /**
      * 
      * testipääohjelma biljardi-luokalle

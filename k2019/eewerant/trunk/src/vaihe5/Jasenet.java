@@ -3,6 +3,13 @@
  */
 package vaihe5;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.util.Scanner;
+
 /**
  * @author eewerant
  * @version 11.3.2019
@@ -67,6 +74,50 @@ public class Jasenet {
             p1.lisaaHavio();
         } 
 
+    }
+    /**
+     * asetetaan tiedostolle nimi
+     * @param nimi joka asetetaan
+     */
+    public void setTiedostonNimi(String nimi) {
+         this.tiedNimi = nimi + ".dat" ;
+    }
+    
+    /**
+     * luetaan tiedostosta jäsenten tiedot ja lisätään jäsenistöön
+     * @param tiedosto tiedostonnimi josta luetaan
+     */
+    public void lueTiedostosta(String tiedosto) {
+        setTiedostonNimi(tiedosto);
+        String rivi;
+        try (Scanner fi = new Scanner(new FileInputStream(new File(tiedosto)))) {
+            while (fi.hasNext()) {
+                rivi = fi.nextLine().trim();
+                if (rivi.equals("") || rivi.startsWith(";")) continue;
+                Jasen jasen = new Jasen();
+                jasen.parse(rivi);
+                lisaa(jasen);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * Tallentaa jäsenistön tiedostoon
+     */
+    public void tallennaTiedostoon() {
+        File tiedosto = new File(this.tiedNimi);
+        try (PrintStream os = new PrintStream(new FileOutputStream(tiedosto))) {
+            Jasen jasen;
+            for (int i = 0; i < lkm; i++) {
+                jasen = anna(i);
+                jasen.tulosta(os);
+            }
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
     
     /**
