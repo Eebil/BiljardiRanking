@@ -4,8 +4,11 @@
 package vaihe5;
 
 import java.io.PrintStream;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import fi.jyu.mit.ohj2.Mjonot;
 
 /**
  * luokka osaa luoda uuden pelin kahden pelin vï¿½lille ja tietï¿½ï¿½ sen ajan
@@ -16,15 +19,12 @@ public class Peli {
 	
 	private static int pelilaskuri = 0;
 	
-	private final Date pvm = new Date();
+	private Date pvm = new Date();
 	private int p1Id;
 	private int p2Id;
-	private String p1Nimi;
-	private String p2Nimi;
-	@SuppressWarnings("unused") //TODO POISTA JOS EI TARVITAKKAAN
     private int pelinId;
 	private Boolean tulos;
-	
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy 'klo:' HH.mm");
 	
 
 	/**
@@ -35,15 +35,19 @@ public class Peli {
 	 * @param p1Nimi pelaaja1 nimi
 	 * @param p2Nimi pelaaja 2 nimi
 	 */
-	public Peli(int p1, int p2, Boolean tulos, String p1Nimi, String p2Nimi) {
-	    this.p1Nimi = p1Nimi;
-	    this.p2Nimi = p2Nimi;
+	public Peli(int p1, int p2, Boolean tulos) {
 		this.p1Id = p1;
 		this.p2Id = p2;
 		this.pelinId = pelilaskuri;
 		this.tulos = tulos;
 		pelilaskuri++;
 		
+	}
+	/**
+	 * peli oletusatribuuteilla
+	 */
+	public Peli() {
+		// tyhjä konstruktori alustuu itsestään
 	}
 	
 	/**
@@ -64,12 +68,31 @@ public class Peli {
 	 */
 	@Override
     public String toString() {
-	    String stulos = "";
+		
+		
+		String pvmJono = dateFormat.format(pvm);		
+		
+		return pelinId + "|" + p1Id + "|" + p2Id + "|" + pvmJono + "|" + tulos.toString();
+	   /* String stulos = "";
         if (tulos) stulos = "W - L";
         else stulos = "L - W";
         SimpleDateFormat date = new SimpleDateFormat("E dd.MM.yyyy 'klo:' HH.mm");
-        return String.format("%40s   |   %-5s   |   %24s" , (p1Nimi + " - " + p2Nimi), stulos, date.format(pvm));
+        return String.format("%40s   |   %-5s   |   %24s" , (p1Nimi + " - " + p2Nimi), stulos, date.format(pvm));*/
 	}
+	
+	 public void parse(String rivi) {
+	        StringBuffer sb = new StringBuffer(rivi);
+	        try {
+	        pelinId = (Mjonot.erota(sb, '|', this.pelinId));
+	        p1Id = Mjonot.erota(sb, '|', p1Id);
+	        p2Id = Mjonot.erota(sb, '|', p2Id);
+			pvm = dateFormat.parse(Mjonot.erota(sb, '|', dateFormat.format(pvm))); //TODO NULL pointteria tästä jostain syystä
+	        tulos = Boolean.parseBoolean(Mjonot.erota(sb, '|', tulos.toString()));
+	    	} catch (ParseException e) {
+				
+				e.printStackTrace();
+			}
+	    }
 
 		
 	
@@ -90,7 +113,7 @@ public class Peli {
 		Jasen anski = new Jasen(); Jasen mahti = new Jasen();
 		anski.taytaAnski(); mahti.taytaMahti();
 		anski.rekisteroi(); mahti.rekisteroi();
-		Peli testipeli = new Peli(anski.getId() , mahti.getId(), true, anski.getNimi(), mahti.getNimi());
+		Peli testipeli = new Peli(anski.getId() , mahti.getId(), true);
 		// testipeli.pelaa();
 		testipeli.tulosta(System.out);
 		
