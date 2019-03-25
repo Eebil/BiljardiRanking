@@ -70,6 +70,7 @@
             <items>
               <MenuItem mnemonicParsing="false" onAction="#handleLopeta" text="Lopeta" />
                   <MenuItem mnemonicParsing="false" onAction="#handleAvaa" text="Avaa" />
+                  	<MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Tallenna"/>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Muokkaa">

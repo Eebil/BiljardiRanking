@@ -87,10 +87,10 @@ public class Jasenet {
      * luetaan tiedostosta jäsenten tiedot ja lisätään jäsenistöön
      * @param tiedosto tiedostonnimi josta luetaan
      */
-    public void lueTiedostosta(String tiedosto) throws FileNotFoundException {
-        setTiedostonNimi(tiedosto);
+    public void lueTiedostosta() throws FileNotFoundException {
+        //setTiedostonNimi(tiedosto);
         String rivi;
-        try (Scanner fi = new Scanner(new FileInputStream(new File(tiedosto)))) {
+        try (Scanner fi = new Scanner(new FileInputStream(new File(tiedNimi)))) {
             while (fi.hasNext()) {
                 rivi = fi.nextLine().trim();
                 if (rivi.equals("") || rivi.startsWith(";")) continue;
@@ -99,7 +99,7 @@ public class Jasenet {
                 lisaa(jasen);
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("ei l�ytynyt tiedostoa, jatketaan");
         }
     }
     
@@ -107,7 +107,7 @@ public class Jasenet {
      * Tallentaa jäsenistön tiedostoon
      */
     public void tallennaTiedostoon() {
-        File tiedosto = new File(this.tiedNimi);
+        File tiedosto = new File(tiedNimi);
         try (PrintStream os = new PrintStream(new FileOutputStream(tiedosto))) {
             Jasen jasen;
             for (int i = 0; i < lkm; i++) {

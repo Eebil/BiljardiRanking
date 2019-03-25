@@ -70,7 +70,7 @@ public class Biljardi {
      * @param tulos true, jos 1 voitti, false jos 2 voitti
      */
     public void pelaa(Jasen p1, Jasen p2, Boolean tulos) {
-        pelihistoria.lisaa(p1.getId(), p2.getId(), tulos, p1.getNimi(), p2.getNimi());
+        pelihistoria.lisaa(p1.getId(), p2.getId(), tulos);
         jasenet.laskeTulos(p1, p2, tulos);
     }
     
@@ -79,7 +79,7 @@ public class Biljardi {
      */
     public void tallenna() {
         jasenet.tallennaTiedostoon();
-        // pelihistoria.tallenna
+        pelihistoria.tallennaTiedostoon();
     }
     
     /**
@@ -87,10 +87,11 @@ public class Biljardi {
      */
     public void lueTiedostosta(String tiedosto) throws FileNotFoundException {
         this.jasenet = new Jasenet();
-        // this.pelihistoria = new Pelihistoria();
+        this.pelihistoria = new Pelihistoria();
         
         setTiedosto(tiedosto);
-        jasenet.lueTiedostosta(tiedosto);
+        jasenet.lueTiedostosta();
+        pelihistoria.lueTiedostosta();
     }
     
     /**
@@ -103,7 +104,8 @@ public class Biljardi {
         String hakemisto = "";
         if (!tiedosto.isEmpty()) hakemisto = tiedosto + "/";
         jasenet.setTiedostonNimi(hakemisto + "jasenet");
-       // pelihistoria.setTiedostonNimi(hakemisto + "pelihistoria");
+        System.out.println("nyt on luotu hakemisto: " + hakemisto + "jasenet"); //testi, poista myöhemmin
+        pelihistoria.setTiedostonNimi(hakemisto + "pelihistoria");
         
     }
     /**

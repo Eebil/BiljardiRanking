@@ -42,7 +42,7 @@ public class LisaaPelaajaGUIController implements ModalControllerInterface<Bilja
 
     @Override
     public void handleShown() {
-        // TODO Auto-generated method stub
+        tallennaButton.requestFocus();
         
     }
 

@@ -59,6 +59,9 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
         avaaPelihistoria();
     	
     }
+    @FXML void handleTallenna() {
+    	tallenna();
+    }
     @FXML void handleTietoja() {
     	ModalController.showModal(PaaikkunaGUIController.class.getResource("TietojaGUIView.fxml"), "Tietoja", null, "" );
     	
@@ -117,6 +120,10 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 		}
     }
     
+    public void tallenna() {
+    	biljardi.tallenna();
+    }
+    
     /**
      * avaa tiedoston kerhon luettavaksi TODO: koko paska
      * @return voiko avata
@@ -171,7 +178,7 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
         @Override
         public int compare(Jasen o1, Jasen o2) {
             // TODO Auto-generated method stub
-            return o1.getNimi().hashCode() - o2.getNimi().hashCode();
+            return o1.getNimi().compareTo(o2.getNimi());
         }
 	    
 	    

@@ -162,7 +162,7 @@ public class Jasen {
     
     @Override
     public String toString() {
-        return (id + "|" + nimi + "|" + vuosikurssi + "|" + pelatut + "|" + voitot + "|" +  haviot + "|" + ranking);
+        return (id + "|" + nimi + "|" + vuosikurssi + "|" + elo + "|" + pelatut + "|" + voitot + "|" +  haviot + "|" + ranking);
         
     }
     /**
@@ -174,6 +174,7 @@ public class Jasen {
         setId(Mjonot.erota(sb, '|', getId()));
         nimi = Mjonot.erota(sb, '|', nimi);
         vuosikurssi = Mjonot.erota(sb, '|', vuosikurssi);
+        elo = Mjonot.erota(sb, '|', elo);
         pelatut = Mjonot.erota(sb, '|', pelatut);
         voitot = Mjonot.erota(sb, '|', voitot);
         haviot = Mjonot.erota(sb, '|', haviot);
