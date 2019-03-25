@@ -1,10 +1,10 @@
 package biljardi;
 
-import fi.jyu.mit.fxgui.Dialogs;
 import fi.jyu.mit.fxgui.ModalController;
 import fi.jyu.mit.fxgui.ModalControllerInterface;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 
 /**
@@ -15,24 +15,25 @@ import javafx.scene.control.TextField;
 public class BiljardiGUIController implements ModalControllerInterface<String> {
 	
     @FXML private TextField liiganNimi;
+    private String vastaus = null;
 	
 	@FXML void handleAvaus() {
-		avaaTiedosto();
+		vastaus = liiganNimi.getText();
+		ModalController.closeStage(liiganNimi);
     }
 
 	@Override
 	public String getResult() {
-		// TODO Auto-generated method stub
-		return null;
+		return vastaus;
 	}
 	@Override
 	public void handleShown() {
-		// TODO Auto-generated method stub
+		liiganNimi.requestFocus();
 		
 	}
 	@Override
-	public void setDefault(String arg0) {
-		// TODO Auto-generated method stub
+	public void setDefault(String oletus) {
+		liiganNimi.setText(oletus);
 		
 	}
 
@@ -41,14 +42,12 @@ public class BiljardiGUIController implements ModalControllerInterface<String> {
 	/*private void avaaPaaikkuna() {		
 		ModalController.showModal(PaaikkunaGUIController.class.getResource("Paaikkuna.fxml"), "paaikkuna", null, "");
 	}*/
-	/**
-	 * avaa dat. tiedoston liigan tietorakennetta varten
-	 * 
-	 */
-	private void avaaTiedosto() {
-		ModalController.closeStage(liiganNimi);
-		Dialogs.showMessageDialog("ei voida");
+
+
 		
+	
+	public static String kysyNimi(Stage modalityStage, String oletus) {
+		return ModalController.showModal(BiljardiGUIController.class.getResource("BiljardiGUIView.fxml"), "BiljardiRanking", modalityStage, oletus);
 	}
 
     
