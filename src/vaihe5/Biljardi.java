@@ -4,6 +4,7 @@
 package vaihe5;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.List;
 
 /**
@@ -84,7 +85,7 @@ public class Biljardi {
     /**
      * @param tiedosto tiedostonnimi
      */
-    public void lueTiedostosta(String tiedosto) {
+    public void lueTiedostosta(String tiedosto) throws FileNotFoundException {
         this.jasenet = new Jasenet();
         // this.pelihistoria = new Pelihistoria();
         

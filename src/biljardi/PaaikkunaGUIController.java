@@ -1,6 +1,7 @@
 package biljardi;
 
 import java.awt.Desktop;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -42,6 +43,7 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 
     }
     @FXML void handleAvaa() {
+    	avaa();
     	ModalController.showModal(PaaikkunaGUIController.class.getResource("BiljardiGUIView.fxml"), "Liigan nimi", null, "");
 	}	
 	@FXML void handleLisaaJasen() {
@@ -91,6 +93,7 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
     
  //-----------------------------------------------------------
 	private Biljardi biljardi;
+	private String rankingNimi = "biljardisankarit";
 	
 	
 	/**
@@ -101,13 +104,27 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
         // TODO Auto-generated method stub
         return true;
     }
+   
+    
+    public void lueTiedosto(String nimi) {
+    	rankingNimi = nimi;
+    	ModalController.getStage(rankingLista).setTitle("Ranking - " + rankingNimi);
+    	try {
+			biljardi.lueTiedostosta(rankingNimi);
+			paivita();
+		} catch (FileNotFoundException e) {
+			System.out.println("EI LÖYDY TIEDOSTOJA!");
+		}
+    }
     
     /**
      * avaa tiedoston kerhon luettavaksi TODO: koko paska
      * @return voiko avata
      */
     public boolean avaa() {
-        // TODO Auto-generated method stub
+    	String liiganNimi = BiljardiGUIController.kysyNimi(null, rankingNimi);
+    	if (liiganNimi == null) return false;
+    	lueTiedosto(liiganNimi);
         return true;
     }
     /**
@@ -129,7 +146,7 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 	public void haePelaajaa() {
 	     hakuChooser.clear();
 	     List<Jasen> osumat = new ArrayList<Jasen>();
-	     String hakusana = "(?i:" + hakuLaatikko.getText().trim() + ".*)";
+	     String hakusana = "(?i:.*" + hakuLaatikko.getText().trim() + ".*)";
 	     System.out.println(hakusana);
 	     for (int i = 0 ; i < biljardi.getLkm(); i++) {
 	         Jasen j = biljardi.annaJasen(i);

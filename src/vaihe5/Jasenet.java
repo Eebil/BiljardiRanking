@@ -87,7 +87,7 @@ public class Jasenet {
      * luetaan tiedostosta jäsenten tiedot ja lisätään jäsenistöön
      * @param tiedosto tiedostonnimi josta luetaan
      */
-    public void lueTiedostosta(String tiedosto) {
+    public void lueTiedostosta(String tiedosto) throws FileNotFoundException {
         setTiedostonNimi(tiedosto);
         String rivi;
         try (Scanner fi = new Scanner(new FileInputStream(new File(tiedosto)))) {
