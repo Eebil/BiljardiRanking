@@ -11,7 +11,6 @@ import fi.jyu.mit.fxgui.ModalControllerInterface;
 import fi.jyu.mit.fxgui.StringGrid;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import vaihe5.Peli;
 
 /**
  * @author eewerant
@@ -44,9 +43,9 @@ public class PelihistoriaGUIController implements ModalControllerInterface<List<
     @Override
     public void setDefault(List<String> pelit) {
         pelihistoriaGrid.clear();
-        /*pelihistoriaGrid.setColumnWidth(1, 10);
-          pelihistoriaGrid.setColumnWidth(2, 5);
-          pelihistoriaGrid.setColumnWidth(3, 9); */ //EI TOIMI JOSTAIN SYYSTÄ 
+        pelihistoriaGrid.setColumnWidth(1, 70);
+         // pelihistoriaGrid.setColumnWidth(2, 5);
+        //  pelihistoriaGrid.setColumnWidth(3, 9);  //EI TOIMI JOSTAIN SYYSTÄ 
         Collections.reverse(pelit); // Näin pelit tulevat niin että tuorein peli näkyy ensimmäisenä
         for (String peli : pelit) {
             String [] osat = peli.toString().trim().split("\\|", 3);

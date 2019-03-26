@@ -30,7 +30,7 @@ public class PelaajanTiedotGUIController implements ModalControllerInterface<Jas
 
 
 	@FXML void handlePoistaJasen() {
-		Dialogs.showQuestionDialog("ui juma", "POISTETAANKO X JÔøΩSEN?", "VEKS!", "Ei sitenkÔøΩÔøΩn..");
+		Dialogs.showQuestionDialog("ui juma", "POISTETAANKO X JƒSEN?", "VEKS!", "Ei sitenk‰‰n..");
     }
 
     @FXML void handleTallennaJaPoistu() {
@@ -54,6 +54,7 @@ public class PelaajanTiedotGUIController implements ModalControllerInterface<Jas
 
 	@Override
 	public void setDefault(Jasen jasen) {
+		this.jasen = jasen;
 		pelaajaNimi.setText(jasen.getNimi());
 		pelaajaRanking.setText("" + jasen.getRanking());
 		pelaajaVuosikurssi.setText("" + jasen.getVuosikurssi());
@@ -64,11 +65,19 @@ public class PelaajanTiedotGUIController implements ModalControllerInterface<Jas
 	}
 //_----------------------------------------------------
 	
+	
+	private Jasen jasen;
 	/**
 	 * tallentaa pelin tiedot
 	 */
 	private void tallenna() {
-		Dialogs.showMessageDialog("ei osata");
+		if (!pelaajaVuosikurssi.getText().matches("\\d{4}") || pelaajaNimi.getText().length() > 25) {
+			Dialogs.showMessageDialog("Liian pitk‰ nimi tai vuosikurssi v‰‰r‰‰ formaattia :< !");
+			return;
+		}
+		jasen.setNimi(pelaajaNimi.getText());
+		jasen.setVuosikurssi(Integer.parseInt(pelaajaVuosikurssi.getText()));
+		ModalController.closeStage(tallennaJaPoistu);
 	}
 	
 	
