@@ -24,7 +24,7 @@ public class Peli {
 	private int p2Id;
     private int pelinId;
 	private Boolean tulos;
-	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy 'klo:' HH.mm");
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy 'klo:' HH:mm");
 	
 
 	/**
@@ -63,6 +63,28 @@ public class Peli {
 	public int getP2Id() {
 		return p2Id;
 	}
+	
+	/**
+	 * palauttaa pelin p‰iv‰m‰‰r‰n merkkijonona
+	 * @return ylla sanottu
+	 */
+	public String getPvmString() {
+		return dateFormat.format(pvm);
+	}
+	
+	/**
+	 * muuttaa Boolean tuloksen k‰ytt‰j‰lle ymm‰rrett‰v‰‰n merkkijonomuotoon
+	 * @return
+	 */
+	public String getTulosString() {
+		if(tulos) return "W - L";
+		return "L - W"; 
+	}
+	
+	public void setPelinId(int pelinId) {
+		this.pelinId = pelinId;
+		if (pelinId > pelilaskuri) pelilaskuri = pelinId + 1;
+	}
 	/**
 	 * @return palauttaa merkkijonoesityksen pelist√§
 	 */
@@ -83,11 +105,11 @@ public class Peli {
 	 public void parse(String rivi) {
 	        StringBuffer sb = new StringBuffer(rivi);
 	        try {
-	        pelinId = (Mjonot.erota(sb, '|', this.pelinId));
+	        setPelinId((Mjonot.erota(sb, '|', this.pelinId)));
 	        p1Id = Mjonot.erota(sb, '|', p1Id);
 	        p2Id = Mjonot.erota(sb, '|', p2Id);
 			pvm = dateFormat.parse(Mjonot.erota(sb, '|', dateFormat.format(pvm))); //TODO NULL pointteria t‰st‰ jostain syyst‰
-	        tulos = Boolean.parseBoolean(Mjonot.erota(sb, '|', tulos.toString()));
+	        tulos = Boolean.parseBoolean(Mjonot.erota(sb, '|', "true"));
 	    	} catch (ParseException e) {
 				
 				e.printStackTrace();

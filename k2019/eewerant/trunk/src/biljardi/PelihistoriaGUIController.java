@@ -18,7 +18,7 @@ import vaihe5.Peli;
  * @version 19.3.2019
  *
  */
-public class PelihistoriaGUIController implements ModalControllerInterface<List<Peli>> {
+public class PelihistoriaGUIController implements ModalControllerInterface<List<String>> {
 
     @FXML private StringGrid<?> pelihistoriaGrid;
     @FXML private Button poistu;
@@ -30,7 +30,7 @@ public class PelihistoriaGUIController implements ModalControllerInterface<List<
     
 
     @Override
-    public List<Peli> getResult() {
+    public List<String> getResult() {
         // TODO Auto-generated method stub
         return null;
     }
@@ -42,13 +42,13 @@ public class PelihistoriaGUIController implements ModalControllerInterface<List<
     }
 
     @Override
-    public void setDefault(List<Peli> pelit) {
+    public void setDefault(List<String> pelit) {
         pelihistoriaGrid.clear();
         /*pelihistoriaGrid.setColumnWidth(1, 10);
           pelihistoriaGrid.setColumnWidth(2, 5);
           pelihistoriaGrid.setColumnWidth(3, 9); */ //EI TOIMI JOSTAIN SYYSTÄ 
         Collections.reverse(pelit); // Näin pelit tulevat niin että tuorein peli näkyy ensimmäisenä
-        for (Peli peli : pelit) {
+        for (String peli : pelit) {
             String [] osat = peli.toString().trim().split("\\|", 3);
             pelihistoriaGrid.add(osat);
         }
