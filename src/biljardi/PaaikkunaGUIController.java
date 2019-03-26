@@ -19,7 +19,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import vaihe5.Biljardi;
 import vaihe5.Jasen;
-import vaihe5.Peli;
 
 /**
  * @author eewerant
@@ -75,6 +74,7 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
     }
     @FXML void handlePelaajanTiedot() {
     	naytaPelaajanTiedot();
+    	paivita();
     	
     }
 
@@ -201,22 +201,18 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 	 }
     
     private void paivita() {
-    	rankingLista.clear(); //TODO: Laita nimet järjestykseen Elon mukaan
+    	rankingLista.clear();
     	List<Jasen> lajittelu = new ArrayList<Jasen>();
-    	// int index = 0;
         for (int i = 0; i < biljardi.getLkm(); i++) {
-        	Jasen jasen = biljardi.annaJasen(i);
-        //	if (jasen.getId() == idNro) index = i;
+        	Jasen jasen = biljardi.annaJasen(i);;
         	lajittelu.add(jasen);
        }
         Collections.sort(lajittelu, new SortElo());
         for (int i = 0; i < biljardi.getLkm(); i++) {
             Jasen jasen = lajittelu.get(i);
             jasen.setRanking(i + 1);
-            rankingLista.add(String.format("%3d %-20s %20d", jasen.getRanking(), jasen.getNimi(), jasen.getElo()), jasen);          
+            rankingLista.add(String.format("%3d %-20s %d", jasen.getRanking(), jasen.getNimi(), jasen.getElo()), jasen);          
         }
-        
-        // rankingLista.setSelectedIndex(index);
     }
     
     /**

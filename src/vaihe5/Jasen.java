@@ -122,6 +122,14 @@ public class Jasen {
     	return haviot;
     }
     
+    public void setNimi(String uusiNimi) {
+		this.nimi = uusiNimi;		
+	}
+    
+    public void setVuosikurssi(int uusiVuosi) {
+		this.vuosikurssi = uusiVuosi;
+		
+	}
     /**
      * setteri id-nu,eroa varten. asettaa laskurin oikeaan paikkaan jos ylittää sen
      * @param id id joka asetetaan jäsenelle
@@ -209,6 +217,10 @@ public class Jasen {
         mahti.tulosta(System.out);
         
     }
+
+	
+
+	
 
 	
 
