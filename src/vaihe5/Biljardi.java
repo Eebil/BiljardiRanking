@@ -5,6 +5,7 @@ package vaihe5;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -50,8 +51,8 @@ public class Biljardi {
     /**
      * @return palauttaa listan kaikista pelatuista peleistÃ¤
      */
-    public List<Peli> annaPelihistoria() {
-        return pelihistoria.haeKaikkiPelit();
+    public List<String> annaPelihistoria() {
+        return muutaPelinTiedoiksi(pelihistoria.haeKaikkiPelit());
     }
     
     /**
@@ -59,8 +60,24 @@ public class Biljardi {
      * @param kenen kenen pelejÃ¤ haetaan
      * @return kaikki pelaajan pelit
      */
-    public List<Peli> pelaajanPelihistoria(Jasen kenen) {
-        return pelihistoria.haePelit(kenen);
+    public List<String> pelaajanPelihistoria(Jasen kenen) {
+        return muutaPelinTiedoiksi(pelihistoria.haePelit(kenen));
+    }
+    /**
+     * muutetaan pelihistoria sellaiseen muotoon, että se voidaan tulostaa käyttöliittymän StrinGridiin
+     * ,eli postetaan turhat ja korvataan id-numerot pelaajien nimillä
+     * @param pelihistoria lista merkkijonoksi muutetuista peleistä
+     * @return uusi lista, jossa tiedot muotoa p1 - p2
+     */
+    public List<String> muutaPelinTiedoiksi(List<Peli> pelihistoria){
+    	List<String> muutettu = new ArrayList<String>();
+    	StringBuilder sb;
+    	for (Peli peli : pelihistoria) {
+    		sb = new StringBuilder();
+    		sb.append(jasenet.annaJasenId(peli.getP1Id()).getNimi() + " - " + jasenet.annaJasenId(peli.getP2Id()).getNimi() + "|" + peli.getTulosString() + "|" + peli.getPvmString());
+    		muutettu.add(sb.toString());
+    	}
+    	return muutettu;
     }
     
     /**

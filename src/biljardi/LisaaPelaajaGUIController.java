@@ -62,10 +62,10 @@ public class LisaaPelaajaGUIController implements ModalControllerInterface<Bilja
      */
     public void tallennaJasen() {
         if (!(nimiText.getText().length() < 25)) {
-            tarkistusLabel.setText("Antamasi nimi saa olla max 25 merkkiÃ¤");
+            tarkistusLabel.setText("Nimi max 25 merkkiä!");
         } 
         else if (!(vuosikurssiText.getText().matches("\\d{4}"))) {
-            tarkistusLabel.setText("Anna vuosikurssi muodossa: VVVV");
+            tarkistusLabel.setText("Vuosikurssi muodossa: vvvv!");
         }
         else {
             biljardi.lisaaJasen(nimiText.getText(), Integer.parseInt(vuosikurssiText.getText()));

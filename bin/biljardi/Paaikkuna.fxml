@@ -59,7 +59,7 @@
                   <Insets left="10.0" right="10.0" />
                </GridPane.margin>
             </TextField>
-            <ListChooser fx:id="hakuChooser" onMouseClicked="#handlePelaajanTiedot" prefWidth="117.0" rivit="ANSKIP PANSKI&#10;JEPPULI&#10;MAHTURIN MAHTI&#10;" GridPane.rowIndex="1" />
+            <ListChooser fx:id="hakuChooser" onMouseClicked="#handlePelaajanTiedot" prefWidth="117.0" rivit="" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </left>
@@ -70,7 +70,7 @@
             <items>
               <MenuItem mnemonicParsing="false" onAction="#handleLopeta" text="Lopeta" />
                   <MenuItem mnemonicParsing="false" onAction="#handleAvaa" text="Avaa" />
-                  	<MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Tallenna"/>
+                  	<MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Tallenna" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Muokkaa">

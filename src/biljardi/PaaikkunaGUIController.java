@@ -35,7 +35,7 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 
 
 	@FXML void handleHae() {
-	     haePelaajaa();
+	     haePelaajaa(hakuChooser, hakuLaatikko);
 		//Dialogs.showMessageDialog("Emm� osaa teh� t�t�");
     }
 	@FXML void handleApua() {
@@ -149,11 +149,13 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 	 
 	 /**
 	 * verrataan hakulaatikkoon kirjoitettua tekstiä jäsenten nimiin ja laitetaan listaan osumat
+	 * @param hakuLista 
+	 * @param hakuField 
 	 */
-	public void haePelaajaa() {
-	     hakuChooser.clear();
+	public void haePelaajaa(ListChooser<Jasen> hakuLista, TextField hakuField) {
+	     hakuLista.clear();
 	     List<Jasen> osumat = new ArrayList<Jasen>();
-	     String hakusana = "(?i:.*" + hakuLaatikko.getText().trim() + ".*)";
+	     String hakusana = "(?i:.*" + hakuField.getText().trim() + ".*)";
 	     System.out.println(hakusana);
 	     for (int i = 0 ; i < biljardi.getLkm(); i++) {
 	         Jasen j = biljardi.annaJasen(i);
@@ -162,7 +164,7 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 	     
 	     Collections.sort(osumat, new SortNimi());
 	     for (int i = 0 ; i < osumat.size(); i++) {
-	         hakuChooser.add(osumat.get(i).getNimi(), osumat.get(i));
+	         hakuLista.add(osumat.get(i).getNimi(), osumat.get(i));
 	     }
 	 }
 	
@@ -170,7 +172,7 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 	 * 
 	 * @author eewerant
 	 * @version 22.3.2019
-	 * Lajitellaan osumat nimen mukaan hash-coden avulla
+	 * Lajitellaan osumat nimen mukaan
 	 *
 	 */
 	public static class SortNimi implements Comparator<Jasen> {
@@ -221,7 +223,7 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
      * avaa kontrollerin pelihistoria-näkymään
      */
     public void avaaPelihistoria() {
-        List<Peli> kokoPelihistoria = biljardi.annaPelihistoria();
+        List<String> kokoPelihistoria = biljardi.annaPelihistoria();
         ModalController.showModal(PaaikkunaGUIController.class.getResource("Pelihistoria.fxml"), "Pelihistoria", null, kokoPelihistoria);
     }
     

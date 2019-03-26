@@ -129,6 +129,20 @@ public class Jasenet {
         if (i < 0 || i > lkm) throw new IndexOutOfBoundsException("Laitonta! " + i);
         return alkiot[i];
     }
+    /**
+     * palauttaa parametrina tuodun Id:n omaavan jäsenen
+     * @param id tunnusnumero jolla haetaan
+     * @return palauttaa jäsenen, jolta kyseinen tunnusnumero löytyy
+     */
+	public Jasen annaJasenId(int id) {
+		Jasen jasen;
+		for (int i = 0; i < lkm; i++) {
+			jasen = anna(i);
+			if (jasen.getId() == id) return jasen;
+		}
+		return null;
+	}
+
     
     /**
      * lisÃ¤tÃ¤Ã¤n jÃ¤sen taulukkoon, jos taulukko ylittyy niin tuplataan sen koko
@@ -187,6 +201,7 @@ public class Jasenet {
         }
     
     }
+
 
   
 
