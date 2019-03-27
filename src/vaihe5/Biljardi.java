@@ -25,6 +25,13 @@ public class Biljardi {
         jasenet.lisaa(j);
     }
     /**
+     * poistetaan j�sen id:n perusteella
+     * @param id poistettavan j�senen id
+     */
+    public void poista(int id) {
+    	jasenet.poista(id);
+    }
+    /**
      * Lisätään uusi jäsen annetulla nimellä ja vuosikurssilla
      * @param nimi jäsenen nimi
      * @param vuosikurssi jäsenen vuosikurssi

@@ -21,6 +21,7 @@ public class Jasenet {
     String tiedNimi = "";
     private int lkm = 0;
     private Jasen[] alkiot = new Jasen[MAX_JASENET];
+    private final double K = 30;
     
     
     /**
@@ -61,18 +62,23 @@ public class Jasenet {
      * @param tulos true jos p1 voitti false jos p2 voitti
      */
     public void laskeTulos(Jasen p1, Jasen p2, Boolean tulos) {
-        if (tulos) {
-            p1.setElo(p1.getElo() + 20); //TODO: IMPLEMENTOI ELO-LASKURI
-            p2.setElo(p2.getElo() - 20);
+      
+    	double todennakoisyysP1Voitto = Yleiset.laskeTodennakoisyys(p2.getElo(), p1.getElo());
+    	double todennakoisyysP2Voitto = Yleiset.laskeTodennakoisyys(p1.getElo(), p2.getElo());
+    	System.out.println("Testi P1 prob = " + todennakoisyysP1Voitto + " P2 prob = " + todennakoisyysP2Voitto);
+    	
+    	 if (tulos) {
+            p1.setElo((int) Math.round(p1.getElo() + K * (1 - todennakoisyysP1Voitto))); //TODO: IMPLEMENTOI ELO-LASKURI
+            p2.setElo((int) Math.round(p2.getElo() + K * (0 - todennakoisyysP2Voitto)));
             p1.lisaaVoitto();
             p2.lisaaHavio();
         }
         else {
-            p1.setElo(p1.getElo() - 20);
-            p2.setElo(p2.getElo() + 20);
+        	p1.setElo((int) Math.round(p1.getElo() + K * (0 - todennakoisyysP1Voitto)));
+            p2.setElo((int) Math.round(p2.getElo() + K * (1 - todennakoisyysP2Voitto)));
             p2.lisaaVoitto();
             p1.lisaaHavio();
-        } 
+        }                          
 
     }
     /**
@@ -168,6 +174,21 @@ public class Jasenet {
         Jasen uusi = new Jasen(nimi, vuosikurssi);
         uusi.rekisteroi();
         this.lisaa(uusi);
+    }
+    /**
+     * poistetaan jäsenistöstä jäsen id:n perusteella
+     * @param id
+     */
+    public void poista(int id) {
+    	for (int i = 0; i < lkm; i++) {
+    		if (alkiot[i].getId() == id) {
+    			int indeksi = i;
+    			for (int j = indeksi; j < lkm - 1; j++) {
+    				alkiot[j] = alkiot[j + 1];
+    			}
+    		}
+    	}
+    	lkm--;
     }
 
     /**

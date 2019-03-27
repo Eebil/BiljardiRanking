@@ -1,11 +1,14 @@
 package biljardi;
 
+import java.util.List;
+
 import fi.jyu.mit.fxgui.Dialogs;
 import fi.jyu.mit.fxgui.ModalController;
 import fi.jyu.mit.fxgui.ModalControllerInterface;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import vaihe5.Biljardi;
 import vaihe5.Jasen;
 
 
@@ -30,7 +33,7 @@ public class PelaajanTiedotGUIController implements ModalControllerInterface<Jas
 
 
 	@FXML void handlePoistaJasen() {
-		Dialogs.showQuestionDialog("ui juma", "POISTETAANKO X JÄSEN?", "VEKS!", "Ei sitenkään..");
+		if (Dialogs.showQuestionDialog("ui juma", "Haluatko varmasti poistaa jasenen:" + jasen.getNimi() + "?", "VEKS!", "Ei sitenkään..")) poistaJasen();
     }
 
     @FXML void handleTallennaJaPoistu() {
@@ -65,7 +68,7 @@ public class PelaajanTiedotGUIController implements ModalControllerInterface<Jas
 	}
 //_----------------------------------------------------
 	
-	
+	private Biljardi biljardi;
 	private Jasen jasen;
 	/**
 	 * tallentaa pelin tiedot
@@ -80,15 +83,24 @@ public class PelaajanTiedotGUIController implements ModalControllerInterface<Jas
 		ModalController.closeStage(tallennaJaPoistu);
 	}
 	
-	
+	private void poistaJasen() {
+		biljardi.poista(jasen.getId());
+		ModalController.closeStage(pelaajaNimi);
+	}
 
 					
    /**
     * hakee pelaajan henkilï¿½kohtaisen pelihistorian
     */
 	private void haePelihistoria() {
-		// Hae myï¿½hemmin tï¿½hï¿½n pelaajan henkilï¿½kohtainen pelihistoria
-		ModalController.showModal(PaaikkunaGUIController.class.getResource("Pelihistoria.fxml"), "Pelihistoria", null, "");		
+		List<String> pelaajanPelihistoria = biljardi.pelaajanPelihistoria(jasen);
+        ModalController.showModal(PaaikkunaGUIController.class.getResource("Pelihistoria.fxml"), "Pelihistoria", null, pelaajanPelihistoria);
+	}
+
+
+
+	public void setBiljardi(Biljardi biljardi) {
+		this.biljardi = biljardi;
 	}
 	
 }

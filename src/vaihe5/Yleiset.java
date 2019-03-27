@@ -20,7 +20,16 @@ public class Yleiset {
 		return (int)Math.round(n);
 		
 	}
-
+	/**
+	 * Lasketaan todennäköisyys pelaajan voitolle perustuen pelaajan ja vastustajan ELO-rankingiin kahden pelaajan yhteenlaskettu todennäköisyys on 1
+	 * @param p1Elo Kysyttävän pelaajan ELO
+	 * @param p2Elo Vastustajan ELO
+	 * @return todennäköisyys voitolle (välillä 0-1)
+	 */
+	public static double laskeTodennakoisyys(int p1Elo, int p2Elo) {
+		
+		return 1.0 * 1.0 / (1 + 1.0 *  (Math.pow(10, 1.0 *  (p1Elo - p2Elo) / 400)));
+	}
 }
 
 

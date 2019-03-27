@@ -234,11 +234,12 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
     
     private void naytaPelaajanTiedot() {
         Jasen jasen;
-        //TODO: Heitä tästä vielä pelihistoria pelaajan tiedot ikkunalle, jotta voidaan näyttää henkilökohtainen pelihistoria
-        //FIX: PASKA RATKASU JOKA EI TO*IMI KEKSI KEINO LAITTAA CHOOSERI PARAMETRINA
+       
     	    if (rankingLista.getSelectedObject() != null) {jasen = rankingLista.getSelectedObject();  paivita();}
     	    else jasen = hakuChooser.getSelectedObject();
-    	ModalController.showModal(PaaikkunaGUIController.class.getResource("PelaajanTiedot.fxml"), "Pelaajan tiedot", null, jasen);
+    	    
+    	    
+    	ModalController.<Jasen, PelaajanTiedotGUIController>showModal(PelaajanTiedotGUIController.class.getResource("PelaajanTiedot.fxml"), "Pelaajan tiedot", null, jasen, ctrl -> ctrl.setBiljardi(biljardi));
     }
     
     
