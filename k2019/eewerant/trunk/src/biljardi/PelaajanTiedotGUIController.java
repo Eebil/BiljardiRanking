@@ -33,7 +33,7 @@ public class PelaajanTiedotGUIController implements ModalControllerInterface<Jas
 
 
 	@FXML void handlePoistaJasen() {
-		if (Dialogs.showQuestionDialog("ui juma", "Haluatko varmasti poistaa jasenen:" + jasen.getNimi() + "?", "VEKS!", "Ei sitenk‰‰n..")) poistaJasen();
+		if (Dialogs.showQuestionDialog("ui juma", "Haluatko varmasti poistaa jasenen:" + jasen.getNimi() + "?", "VEKS!", "Ei sitenkÔøΩÔøΩn..")) poistaJasen();
     }
 
     @FXML void handleTallennaJaPoistu() {
@@ -75,7 +75,7 @@ public class PelaajanTiedotGUIController implements ModalControllerInterface<Jas
 	 */
 	private void tallenna() {
 		if (!pelaajaVuosikurssi.getText().matches("\\d{4}") || pelaajaNimi.getText().length() > 25) {
-			Dialogs.showMessageDialog("Liian pitk‰ nimi tai vuosikurssi v‰‰r‰‰ formaattia :< !");
+			Dialogs.showMessageDialog("Liian pitkÔøΩ nimi tai vuosikurssi vÔøΩÔøΩrÔøΩÔøΩ formaattia :< !");
 			return;
 		}
 		jasen.setNimi(pelaajaNimi.getText());
@@ -99,6 +99,10 @@ public class PelaajanTiedotGUIController implements ModalControllerInterface<Jas
 
 
 
+	/**
+	 * suoritetaan lambda lausekkeella diealogia avattaessa, asetetaan luokalle p√§sy k√§ytett√§v√§√§n biljardi-luokkaan
+	 * @param biljardi luokka joka tuodaan
+	 */
 	public void setBiljardi(Biljardi biljardi) {
 		this.biljardi = biljardi;
 	}

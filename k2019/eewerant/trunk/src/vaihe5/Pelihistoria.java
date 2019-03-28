@@ -41,7 +41,6 @@ public class Pelihistoria implements Iterable<Peli> {
 	}
 	/**
 	 * luetaan tiedostosta tiedot ohjelmalle
-	 * @param nimi
 	 */
 	public void lueTiedostosta() {
 		// setTiedostonNimi(tiedosto);
@@ -55,10 +54,13 @@ public class Pelihistoria implements Iterable<Peli> {
                 pelit.add(peli);
             }
         } catch (FileNotFoundException e) {
-            System.out.println("ei löytynyt tiedostoa, jatketaan");
+            System.out.println("ei lï¿½ytynyt tiedostoa, jatketaan");
         }
 	}
 	
+	/**
+	 * Tallennetaan tiedot tiedostoon
+	 */
 	public void tallennaTiedostoon() {
 		File tiedosto = new File(tiedNimi);
         try (PrintStream os = new PrintStream(new FileOutputStream(tiedosto))) {
@@ -68,7 +70,7 @@ public class Pelihistoria implements Iterable<Peli> {
                 peli.tulosta(os);
             }
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
 	}
@@ -79,8 +81,6 @@ public class Pelihistoria implements Iterable<Peli> {
 	 * @param p1Id pelaajan 1 Id
 	 * @param p2Id Pelaajan 2 Id
 	 * @param tulos True, jos p1 voitti, false jos p2
-	 * @param p1Nimi pelaaja 1 Nimi
-	 * @param p2Nimi pelaaja 2 Nimi
 	 */
 	public void lisaa(int p1Id, int p2Id, Boolean tulos) {
 	    Peli uusipeli = new Peli(p1Id, p2Id, tulos);

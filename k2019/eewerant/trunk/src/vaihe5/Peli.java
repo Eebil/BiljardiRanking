@@ -32,8 +32,6 @@ public class Peli {
 	 * @param p1 Pelaaja 1 Jaasen luokasta
 	 * @param p2 Pelaaja 2 Jasen luokasta
 	 * @param tulos pelin tulos
-	 * @param p1Nimi pelaaja1 nimi
-	 * @param p2Nimi pelaaja 2 nimi
 	 */
 	public Peli(int p1, int p2, Boolean tulos) {
 		this.p1Id = p1;
@@ -47,7 +45,7 @@ public class Peli {
 	 * peli oletusatribuuteilla
 	 */
 	public Peli() {
-		// tyhjä konstruktori alustuu itsestään
+		// tyhjï¿½ konstruktori alustuu itsestï¿½ï¿½n
 	}
 	
 	/**
@@ -65,7 +63,7 @@ public class Peli {
 	}
 	
 	/**
-	 * palauttaa pelin päivämäärän merkkijonona
+	 * palauttaa pelin pï¿½ivï¿½mï¿½ï¿½rï¿½n merkkijonona
 	 * @return ylla sanottu
 	 */
 	public String getPvmString() {
@@ -73,14 +71,17 @@ public class Peli {
 	}
 	
 	/**
-	 * muuttaa Boolean tuloksen käyttäjälle ymmärrettävään merkkijonomuotoon
-	 * @return
+	 * muuttaa Boolean tuloksen kï¿½yttï¿½jï¿½lle ymmï¿½rrettï¿½vï¿½ï¿½n merkkijonomuotoon
+	 * @return muuttaa tuloksen boolean-arvon kÃ¤yttÃ¤jÃ¤lle selkeÃ¤mpÃ¤Ã¤n muotoon
 	 */
 	public String getTulosString() {
 		if(tulos) return "W - L";
 		return "L - W"; 
 	}
 	
+	/**
+	 * @param pelinId asettaa pelille id:n
+	 */
 	public void setPelinId(int pelinId) {
 		this.pelinId = pelinId;
 		if (pelinId > pelilaskuri) pelilaskuri = pelinId + 1;
@@ -102,13 +103,17 @@ public class Peli {
         return String.format("%40s   |   %-5s   |   %24s" , (p1Nimi + " - " + p2Nimi), stulos, date.format(pvm));*/
 	}
 	
-	 public void parse(String rivi) {
+	 /**
+	  * parsitaan pelin tiedot merkkijonosta
+	 * @param rivi merkkijono, josta tiedot parsitaan
+	 */
+	public void parse(String rivi) {
 	        StringBuffer sb = new StringBuffer(rivi);
 	        try {
 	        setPelinId((Mjonot.erota(sb, '|', this.pelinId)));
 	        p1Id = Mjonot.erota(sb, '|', p1Id);
 	        p2Id = Mjonot.erota(sb, '|', p2Id);
-			pvm = dateFormat.parse(Mjonot.erota(sb, '|', dateFormat.format(pvm))); //TODO NULL pointteria tästä jostain syystä
+			pvm = dateFormat.parse(Mjonot.erota(sb, '|', dateFormat.format(pvm))); //TODO NULL pointteria tï¿½stï¿½ jostain syystï¿½
 	        tulos = Boolean.parseBoolean(Mjonot.erota(sb, '|', "true"));
 	    	} catch (ParseException e) {
 				

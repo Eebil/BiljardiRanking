@@ -46,6 +46,12 @@ public class BiljardiGUIController implements ModalControllerInterface<String> {
 
 		
 	
+	/**
+	 * kysytään ohjelmaa avattaessa rankingin nimi
+	 * @param modalityStage stage
+	 * @param oletus oletusarvo
+	 * @return rankingin nimi
+	 */
 	public static String kysyNimi(Stage modalityStage, String oletus) {
 		return ModalController.showModal(BiljardiGUIController.class.getResource("BiljardiGUIView.fxml"), "BiljardiRanking", modalityStage, oletus);
 	}
