@@ -18,7 +18,7 @@ import java.util.Scanner;
 public class Jasenet {
     
     private int MAX_JASENET = 5;
-    String tiedNimi = "";
+    private String tiedNimi = "";
     private int lkm = 0;
     private Jasen[] alkiot = new Jasen[MAX_JASENET];
     private final double K = 30;
@@ -68,7 +68,7 @@ public class Jasenet {
     	System.out.println("Testi P1 prob = " + todennakoisyysP1Voitto + " P2 prob = " + todennakoisyysP2Voitto);
     	
     	 if (tulos) {
-            p1.setElo((int) Math.round(p1.getElo() + K * (1 - todennakoisyysP1Voitto))); //TODO: IMPLEMENTOI ELO-LASKURI
+            p1.setElo((int) Math.round(p1.getElo() + K * (1 - todennakoisyysP1Voitto))); 
             p2.setElo((int) Math.round(p2.getElo() + K * (0 - todennakoisyysP2Voitto)));
             p1.lisaaVoitto();
             p2.lisaaHavio();
@@ -91,6 +91,7 @@ public class Jasenet {
     
     /**
      * luetaan tiedostosta jäsenten tiedot ja lisätään jäsenistöön
+     * TODO: TESTIT
      */
     public void lueTiedostosta() {
         //setTiedostonNimi(tiedosto);
@@ -110,6 +111,7 @@ public class Jasenet {
     
     /**
      * Tallentaa jäsenistön tiedostoon
+     * TODO: TESTIT MY�S
      */
     public void tallennaTiedostoon() {
         File tiedosto = new File(tiedNimi);
@@ -145,7 +147,7 @@ public class Jasenet {
 			jasen = anna(i);
 			if (jasen.getId() == id) return jasen;
 		}
-		return null;
+		return null; // TODO: t�n takia tulee null pointeria poistetun j�senen takia pelihistoriaan
 	}
 
     

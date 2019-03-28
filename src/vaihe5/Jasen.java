@@ -37,7 +37,7 @@ public class Jasen {
      * tyhjä kunstruktori
      */
     public Jasen() {
-        // TODO Auto-generated constructor stub
+     
     }
 
     /**
