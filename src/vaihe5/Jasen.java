@@ -122,10 +122,16 @@ public class Jasen {
     	return haviot;
     }
     
+    /**
+     * @param uusiNimi nimi joka asetetaan
+     */
     public void setNimi(String uusiNimi) {
 		this.nimi = uusiNimi;		
 	}
     
+    /**
+     * @param uusiVuosi vuosikurssi mikä asetetaan
+     */
     public void setVuosikurssi(int uusiVuosi) {
 		this.vuosikurssi = uusiVuosi;
 		

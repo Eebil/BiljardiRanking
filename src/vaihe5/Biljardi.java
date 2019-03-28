@@ -25,8 +25,8 @@ public class Biljardi {
         jasenet.lisaa(j);
     }
     /**
-     * poistetaan jäsen id:n perusteella
-     * @param id poistettavan jäsenen id
+     * poistetaan jï¿½sen id:n perusteella
+     * @param id poistettavan jï¿½senen id
      */
     public void poista(int id) {
     	jasenet.poista(id);
@@ -71,12 +71,12 @@ public class Biljardi {
         return muutaPelinTiedoiksi(pelihistoria.haePelit(kenen));
     }
     /**
-     * muutetaan pelihistoria sellaiseen muotoon, että se voidaan tulostaa käyttöliittymän StrinGridiin
-     * ,eli postetaan turhat ja korvataan id-numerot pelaajien nimillä
-     * @param pelihistoria lista merkkijonoksi muutetuista peleistä
+     * muutetaan pelihistoria sellaiseen muotoon, ettï¿½ se voidaan tulostaa kï¿½yttï¿½liittymï¿½n StrinGridiin
+     * ,eli postetaan turhat ja korvataan id-numerot pelaajien nimillï¿½
+     * @param pelihistoria lista merkkijonoksi muutetuista peleistï¿½
      * @return uusi lista, jossa tiedot muotoa p1 - p2
      */
-    public List<String> muutaPelinTiedoiksi(List<Peli> pelihistoria){
+    public List<String> muutaPelinTiedoiksi(@SuppressWarnings("hiding") List<Peli> pelihistoria){
     	List<String> muutettu = new ArrayList<String>();
     	StringBuilder sb;
     	for (Peli peli : pelihistoria) {
@@ -108,6 +108,7 @@ public class Biljardi {
     
     /**
      * @param tiedosto tiedostonnimi
+     * @throws FileNotFoundException jos ei lÃ¶ydy tiedostoa
      */
     public void lueTiedostosta(String tiedosto) throws FileNotFoundException {
         this.jasenet = new Jasenet();
@@ -128,7 +129,7 @@ public class Biljardi {
         String hakemisto = "";
         if (!tiedosto.isEmpty()) hakemisto = tiedosto + "/";
         jasenet.setTiedostonNimi(hakemisto + "jasenet");
-        System.out.println("nyt on luotu hakemisto: " + hakemisto + "jasenet"); //testi, poista myöhemmin
+        System.out.println("nyt on luotu hakemisto: " + hakemisto + "jasenet"); //testi, poista myï¿½hemmin
         pelihistoria.setTiedostonNimi(hakemisto + "pelihistoria");
         
     }

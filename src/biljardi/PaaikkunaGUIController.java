@@ -109,6 +109,9 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
     }
    
     
+    /**
+     * @param nimi tiedoston polusta
+     */
     public void lueTiedosto(String nimi) {
     	rankingNimi = nimi;
     	ModalController.getStage(rankingLista).setTitle("Ranking - " + rankingNimi);
@@ -116,10 +119,13 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 			biljardi.lueTiedostosta(rankingNimi);
 			paivita();
 		} catch (FileNotFoundException e) {
-			System.out.println("EI L�YDY TIEDOSTOJA!");
+			System.out.println("EI L�YDY TIEDOSTOJA!");
 		}
     }
     
+    /**
+     * tallennetaan muutokset asetettuun polkuun
+     */
     public void tallenna() {
     	biljardi.tallenna();
     }
@@ -149,8 +155,8 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 	 
 	 /**
 	 * verrataan hakulaatikkoon kirjoitettua tekstiä jäsenten nimiin ja laitetaan listaan osumat
-	 * @param hakuLista 
-	 * @param hakuField 
+	 * @param hakuLista ListChooser, johon hakutulokset laitetaan lajiteltuna
+	 * @param hakuField tekstikenttä mihin kirjoitetaan hakusana, joka muutetaan regexiksi
 	 */
 	public void haePelaajaa(ListChooser<Jasen> hakuLista, TextField hakuField) {
 	     hakuLista.clear();

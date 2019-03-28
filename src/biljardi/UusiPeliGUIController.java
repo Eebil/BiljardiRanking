@@ -114,7 +114,8 @@ public class UusiPeliGUIController implements ModalControllerInterface<Biljardi>
 		if (p1 == p2) {Dialogs.showMessageDialog("Onneksi olkon! Voitit itsesi :^)"); return;}
 		tulos = p1RadioButton.isSelected();
 		biljardi.pelaa(p1, p2, tulos);
-		String voittaja;
+		@SuppressWarnings("hiding")
+        String voittaja;
 		if(tulos) voittaja = p1.getNimi();
 		else voittaja = p2.getNimi();
 		Dialogs.showMessageDialog("Onnittelut voitosta " + voittaja + "!");
@@ -123,6 +124,7 @@ public class UusiPeliGUIController implements ModalControllerInterface<Biljardi>
 	/**
 	 * asetetaan valittu pelaaja jommaksi kummaksi pelaajaksi ja laitetaan pelaajan nimi labeliin
 	 * @param chooser ListChooser, josta pelaaja haetaan
+	 * @param pelaaja apumerkkijono, joka kertoo kumpi pelaaja kyseessa
 	 */
 	public void valitsePelaaja(ListChooser<Jasen> chooser, String pelaaja) {
 		if (pelaaja.equals("p1")) {
@@ -136,6 +138,11 @@ public class UusiPeliGUIController implements ModalControllerInterface<Biljardi>
 		
 	}
 	
+	/**
+	 * Haetaan pelajaa listChooseriin Hakukentän avulla
+	 * @param hakuLista Chooser, johon tulokset tuodaan järjestyksessä
+	 * @param hakuField Kenttä johon hakusana kirjoitetaan
+	 */
 	public void haePelaajaa(ListChooser<Jasen> hakuLista, TextField hakuField) {
 	     hakuLista.clear();
 	     List<Jasen> osumat = new ArrayList<Jasen>();

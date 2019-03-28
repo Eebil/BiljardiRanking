@@ -91,9 +91,8 @@ public class Jasenet {
     
     /**
      * luetaan tiedostosta jÃ¤senten tiedot ja lisÃ¤tÃ¤Ã¤n jÃ¤senistÃ¶Ã¶n
-     * @param tiedosto tiedostonnimi josta luetaan
      */
-    public void lueTiedostosta() throws FileNotFoundException {
+    public void lueTiedostosta() {
         //setTiedostonNimi(tiedosto);
         String rivi;
         try (Scanner fi = new Scanner(new FileInputStream(new File(tiedNimi)))) {
@@ -105,7 +104,7 @@ public class Jasenet {
                 lisaa(jasen);
             }
         } catch (FileNotFoundException e) {
-            System.out.println("ei löytynyt tiedostoa, jatketaan");
+            System.out.println("ei lï¿½ytynyt tiedostoa, jatketaan");
         }
     }
     
@@ -136,9 +135,9 @@ public class Jasenet {
         return alkiot[i];
     }
     /**
-     * palauttaa parametrina tuodun Id:n omaavan jäsenen
+     * palauttaa parametrina tuodun Id:n omaavan jï¿½senen
      * @param id tunnusnumero jolla haetaan
-     * @return palauttaa jäsenen, jolta kyseinen tunnusnumero löytyy
+     * @return palauttaa jï¿½senen, jolta kyseinen tunnusnumero lï¿½ytyy
      */
 	public Jasen annaJasenId(int id) {
 		Jasen jasen;
@@ -176,8 +175,8 @@ public class Jasenet {
         this.lisaa(uusi);
     }
     /**
-     * poistetaan jäsenistöstä jäsen id:n perusteella
-     * @param id
+     * poistetaan jï¿½senistï¿½stï¿½ jï¿½sen id:n perusteella
+     * @param id poistettavan jÃ¤senen id
      */
     public void poista(int id) {
     	for (int i = 0; i < lkm; i++) {
