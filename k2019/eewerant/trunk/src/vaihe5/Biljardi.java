@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * TODO: LUOKAN KUVAUS AUTHOR KOKONAAN
  * @author eewerant
  * @version 13.3.2019
  *
@@ -79,7 +80,7 @@ public class Biljardi {
     public List<String> muutaPelinTiedoiksi(@SuppressWarnings("hiding") List<Peli> pelihistoria){
     	List<String> muutettu = new ArrayList<String>();
     	StringBuilder sb;
-    	for (Peli peli : pelihistoria) {
+    	for (Peli peli : pelihistoria) { //TODO: Muuta jos tulee nullPointeria poiston takia!!
     		sb = new StringBuilder();
     		sb.append(jasenet.annaJasenId(peli.getP1Id()).getNimi() + " - " + jasenet.annaJasenId(peli.getP2Id()).getNimi() + "|" + peli.getTulosString() + "|" + peli.getPvmString());
     		muutettu.add(sb.toString());

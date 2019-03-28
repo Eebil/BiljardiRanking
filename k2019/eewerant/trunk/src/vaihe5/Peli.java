@@ -113,7 +113,7 @@ public class Peli {
 	        setPelinId((Mjonot.erota(sb, '|', this.pelinId)));
 	        p1Id = Mjonot.erota(sb, '|', p1Id);
 	        p2Id = Mjonot.erota(sb, '|', p2Id);
-			pvm = dateFormat.parse(Mjonot.erota(sb, '|', dateFormat.format(pvm))); //TODO NULL pointteria t�st� jostain syyst�
+			pvm = dateFormat.parse(Mjonot.erota(sb, '|', dateFormat.format(pvm)));
 	        tulos = Boolean.parseBoolean(Mjonot.erota(sb, '|', "true"));
 	    	} catch (ParseException e) {
 				
