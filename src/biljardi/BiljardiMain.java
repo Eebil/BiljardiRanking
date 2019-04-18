@@ -10,7 +10,8 @@ import javafx.fxml.FXMLLoader;
 
 
 /**
- * @author eewerant
+ * Käyttöliittymän pääluokka, joka käynnistää ohjelman
+ * @author Eetu Rantala
  * @version 31.1.2019
  *
  */

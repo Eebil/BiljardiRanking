@@ -5,7 +5,8 @@ import java.io.*;
 import fi.jyu.mit.ohj2.Mjonot;
 
 /**
- * @author eewerant
+ * Luokka yksittäistä jäsentä varten
+ * @author Eetu Rantala
  * @version 11.3.2019
  *
  */
@@ -27,6 +28,12 @@ public class Jasen {
      * Luo uuden jäsenen annetuilla parametreilla
      * @param nimi tuotu nimi
      * @param vuosikurssi tuotu vuosikurssi
+     * @example
+     * <pre name="test">
+     *  Jasen testi = new Jasen("testimies", 2009);
+     *  testi.getNimi() === "testimies";
+     *  testi.getVuosikurssi() === 2009;
+     * </pre>
      */
     public Jasen(String nimi, int vuosikurssi) {
         this.nimi = nimi;
@@ -182,6 +189,13 @@ public class Jasen {
     /**
      * Asetetaan jäsenelle tiedot merkkijonosta
      * @param rivi rivi josta tiedot haetaan
+     * @example
+     * <pre name="test">
+     *  Jasen testi = new Jasen();
+     *  testi.parse("900|hessu|9000|2301|4|2|2|3");
+     *  testi.getNimi() === "hessu";
+     *  testi.getElo() === 2301;
+     * </pre>
      */
     public void parse(String rivi) {
         StringBuffer sb = new StringBuffer(rivi);

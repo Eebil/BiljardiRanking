@@ -12,7 +12,7 @@ import fi.jyu.mit.ohj2.Mjonot;
 
 /**
  * luokka osaa luoda uuden pelin kahden pelin v�lille ja tiet�� sen ajan
- * @author eewerant
+ * @author Eetu Rantala
  *
  */
 public class Peli {

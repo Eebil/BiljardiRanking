@@ -21,8 +21,9 @@ import vaihe5.Biljardi;
 import vaihe5.Jasen;
 
 /**
- * @author eewerant
+ * @author Eetu Rantala
  * @version 11.3.2019
+ * luokka pääikkunan hallintaa varten
  *
  */
 public class PaaikkunaGUIController implements ModalControllerInterface<String> {
@@ -35,7 +36,6 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 
 	@FXML void handleHae() {
 	     haePelaajaa(hakuChooser, hakuLaatikko);
-		//Dialogs.showMessageDialog("Emm� osaa teh� t�t�");
     }
 	@FXML void handleApua() {
 		apuja();
@@ -47,8 +47,6 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 	}	
 	@FXML void handleLisaaJasen() {
 		lisaaJasen();
-    	//Dialogs.showMessageDialog("Emm� osaa teh� t�t�");
-    	//Dialogs.showMessageDialog("Emm� osaa lis�st� viel�");
     }
     
 	@FXML void handleLopeta() {
@@ -80,23 +78,23 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 
 	@Override
 	public String getResult() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	@Override
 	public void handleShown() {
-		// TODO Auto-generated method stub
+		// Auto-generated method stub
 		
 	}
 	@Override
 	public void setDefault(String arg0) {
-		// TODO Auto-generated method stub
+		// Auto-generated method stub
 		
 	}
     
  //-----------------------------------------------------------
 	private Biljardi biljardi;
 	private String rankingNimi = "biljardisankarit";
+	private Boolean muutettu = true;
 	
 	
 	/**
@@ -104,7 +102,10 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
      * @return palauttaa onko tallennettu ja voiko turvallisesti sulkea ohjelman
      */
     public boolean voikoSulkea() {
-        // TODO Auto-generated method stub
+        if (muutettu) { 
+            tallenna();
+            System.out.println("tallenetaan!");
+        }
         return true;
     }
    
@@ -128,10 +129,11 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
      */
     public void tallenna() {
     	biljardi.tallenna();
+    	muutettu = false;
     }
     
     /**
-     * avaa tiedoston kerhon luettavaksi TODO: koko paska
+     * avaa tiedoston kerhon luettavaksi
      * @return voiko avata
      */
     public boolean avaa() {
@@ -151,6 +153,7 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 	 private void lisaaJasen() {
 	    ModalController.showModal(PaaikkunaGUIController.class.getResource("LisaaPelaaja.fxml"), "Lisaa Pelaaja", null, biljardi);
 		paivita();
+		muutettu = true;
 	 }
 	 
 	 /**
@@ -176,8 +179,6 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 	
 	/**
 	 * 
-	 * @author eewerant
-	 * @version 22.3.2019
 	 * Lajitellaan osumat nimen mukaan
 	 *
 	 */
@@ -185,7 +186,6 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 
         @Override
         public int compare(Jasen o1, Jasen o2) {
-            // TODO Auto-generated method stub
             return o1.getNimi().compareTo(o2.getNimi());
         }
 	    
@@ -193,8 +193,6 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
 	}
 	 
 	 /**
-	 * @author eewerant
-	 * @version 20.3.2019
 	 * Lajittelee jäsenet laskevaan järjestykseen elon perusteella
 	 */
 	public static class SortElo implements Comparator<Jasen> {
@@ -236,16 +234,17 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
     	
     	ModalController.showModal(PaaikkunaGUIController.class.getResource("UusiPeli.fxml"), "Uusi Peli", null, biljardi);
     	paivita();
+    	muutettu = true;
     }
     
     private void naytaPelaajanTiedot() {
         Jasen jasen;
        
     	    if (rankingLista.getSelectedObject() != null) {jasen = rankingLista.getSelectedObject();  paivita();}
-    	    else jasen = hakuChooser.getSelectedObject();
-    	    
+    	    else jasen = hakuChooser.getSelectedObject();   	    
     	    
     	ModalController.<Jasen, PelaajanTiedotGUIController>showModal(PelaajanTiedotGUIController.class.getResource("PelaajanTiedot.fxml"), "Pelaajan tiedot", null, jasen, ctrl -> ctrl.setBiljardi(biljardi));
+    	muutettu = true;
     }
     
     
