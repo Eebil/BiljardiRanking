@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 /**
  * luokka pelien s�ilytt�mist� varten
- * @author eewerant
+ * @author Eetu Rantala
  *
  */
 public class Pelihistoria implements Iterable<Peli> {

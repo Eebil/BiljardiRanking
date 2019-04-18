@@ -3,7 +3,7 @@ package vaihe5;
 
 /**
  * erilaista hÃ¤rpÃ¤kettÃ¤ tietojen kÃ¤sittelyyn
- * @author eewerant
+ * @author Eetu Rantala
  * @version 14.3.2019
  *
  */
@@ -21,10 +21,10 @@ public class Yleiset {
 		
 	}
 	/**
-	 * Lasketaan todennäköisyys pelaajan voitolle perustuen pelaajan ja vastustajan ELO-rankingiin kahden pelaajan yhteenlaskettu todennäköisyys on 1
-	 * @param p1Elo Kysyttävän pelaajan ELO
+	 * Lasketaan todennï¿½kï¿½isyys pelaajan voitolle perustuen pelaajan ja vastustajan ELO-rankingiin kahden pelaajan yhteenlaskettu todennï¿½kï¿½isyys on 1
+	 * @param p1Elo Kysyttï¿½vï¿½n pelaajan ELO
 	 * @param p2Elo Vastustajan ELO
-	 * @return todennäköisyys voitolle (välillä 0-1)
+	 * @return todennï¿½kï¿½isyys voitolle (vï¿½lillï¿½ 0-1)
 	 */
 	public static double laskeTodennakoisyys(int p1Elo, int p2Elo) {
 		

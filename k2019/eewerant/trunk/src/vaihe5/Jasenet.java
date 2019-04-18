@@ -11,7 +11,8 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
- * @author eewerant
+ * Jäsenistön luokka
+ * @author Eetu Rantala
  * @version 11.3.2019
  *
  */
@@ -52,7 +53,7 @@ public class Jasenet {
         for (int i = 0; i < lkm; i++) {
             if (alkiot[i].getId() == id) return alkiot[i].getNimi();            
         }
-        return "virhe";
+        return "!POISTETTU!";
     }
     
     /**
@@ -91,7 +92,33 @@ public class Jasenet {
     
     /**
      * luetaan tiedostosta jäsenten tiedot ja lisätään jäsenistöön
-     * TODO: TESTIT
+     * @example
+     * <pre name="test">
+     * 
+     * #THROWS IndexOutOfBoundsException;
+     * #import java.io.File;
+     *  
+     *  Jasenet testJasenet = new Jasenet();
+     *  Jasen testi1 = new Jasen();
+     *  Jasen testi2 = new Jasen();
+     *  testi1.parse("1||||||");
+     *  testi2.parse("2||||||");
+     *  testJasenet.setTiedostonNimi("Testisankarit/jasenet");
+     *  File testiTiedosto = new File("Testisankarit/jasenet.dat");
+     *  File dir =  new File("Testisankarit");
+     *  dir.mkdir();
+     *  testJasenet.lisaa(testi1);
+     *  testJasenet.lisaa(testi2);
+     *  testJasenet.tallennaTiedostoon();
+     *  testJasenet = new Jasenet();
+     *  testJasenet.setTiedostonNimi("Testisankarit/jasenet");
+     *  testJasenet.lueTiedostosta();
+     *  testJasenet.anna(0).getId() === 1;
+     *  testJasenet.anna(1).getId() === 2;
+     *  testiTiedosto.delete() === true;
+     *  dir.delete() === true;
+     *  
+     * </pre>
      */
     public void lueTiedostosta() {
         //setTiedostonNimi(tiedosto);
@@ -111,7 +138,7 @@ public class Jasenet {
     
     /**
      * Tallentaa jäsenistön tiedostoon
-     * TODO: TESTIT MY�S
+     * heittaa fileNotFoundExceptionia jos ei onnistu
      */
     public void tallennaTiedostoon() {
         File tiedosto = new File(tiedNimi);
@@ -122,7 +149,6 @@ public class Jasenet {
                 jasen.tulosta(os);
             }
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -147,7 +173,7 @@ public class Jasenet {
 			jasen = anna(i);
 			if (jasen.getId() == id) return jasen;
 		}
-		return null; // TODO: t�n takia tulee null pointeria poistetun j�senen takia pelihistoriaan
+		return null;
 	}
 
     

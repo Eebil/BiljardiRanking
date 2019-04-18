@@ -13,8 +13,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 /**
- * @author eewerant
+ * @author Eetu Rantala
  * @version 19.3.2019
+ * Luokka jolla voidaan tarkastella joko koko pelihistoriaa tai pelkästään yhden pelaajan pelihistoriaa
  *
  */
 public class PelihistoriaGUIController implements ModalControllerInterface<List<String>> {

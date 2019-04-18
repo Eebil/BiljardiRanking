@@ -13,8 +13,9 @@ import vaihe5.Jasen;
 
 
 /**
- * @author eewerant
+ * @author Eetu Rantala
  * @version 11.3.2019
+ * Luokka pelaajan tietojen muokkausta ja tarkistelua varten
  *
  */
 public class PelaajanTiedotGUIController implements ModalControllerInterface<Jasen> {

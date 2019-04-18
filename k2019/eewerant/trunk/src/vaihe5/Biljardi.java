@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TODO: LUOKAN KUVAUS AUTHOR KOKONAAN
- * @author eewerant
+ * Hierarkiassa korkeimpana oleva toiminnallinen luokka joka huolehtii muiden luokkien kommunikaatiosta
+ * @author Eetu Rantala
  * @version 13.3.2019
  *
  */
@@ -82,7 +82,7 @@ public class Biljardi {
     	StringBuilder sb;
     	for (Peli peli : pelihistoria) { //TODO: Muuta jos tulee nullPointeria poiston takia!!
     		sb = new StringBuilder();
-    		sb.append(jasenet.annaJasenId(peli.getP1Id()).getNimi() + " - " + jasenet.annaJasenId(peli.getP2Id()).getNimi() + "|" + peli.getTulosString() + "|" + peli.getPvmString());
+    		sb.append(jasenet.getNimiId(peli.getP1Id()) + " - " + jasenet.getNimiId(peli.getP2Id()) + "|" + peli.getTulosString() + "|" + peli.getPvmString());
     		muutettu.add(sb.toString());
     	}
     	return muutettu;

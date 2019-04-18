@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 import vaihe5.Biljardi;
 
 /**
- * @author eewerant
+ * @author Eetu Rantala
  * @version 22.3.2019
  * kontrolleri uuden pelaajan lisäämiseksi jäsenistöön
  */
@@ -36,7 +36,6 @@ public class LisaaPelaajaGUIController implements ModalControllerInterface<Bilja
 
     @Override
     public Biljardi getResult() {
-        // TODO Auto-generated method stub
         return null;
     }
 
@@ -62,7 +61,7 @@ public class LisaaPelaajaGUIController implements ModalControllerInterface<Bilja
      */
     public void tallennaJasen() {
         if (!(nimiText.getText().length() < 25)) {
-            tarkistusLabel.setText("Nimi max 25 merkki�!");
+            tarkistusLabel.setText("Nimi max 25 merkki�!");
         } 
         else if (!(vuosikurssiText.getText().matches("\\d{4}"))) {
             tarkistusLabel.setText("Vuosikurssi muodossa: vvvv!");

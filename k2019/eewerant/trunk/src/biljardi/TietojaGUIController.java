@@ -3,7 +3,7 @@ package biljardi;
 import javafx.fxml.FXML;
 
 /**
- * @author eewerant
+ * @author Eetu Rantala
  * @version 6.2.2019
  *
  */

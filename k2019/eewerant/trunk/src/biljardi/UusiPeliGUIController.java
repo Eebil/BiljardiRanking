@@ -22,7 +22,8 @@ import vaihe5.Biljardi;
 import vaihe5.Jasen;
 
 /**
- * @author eewerant
+ * @author Eetu Rantala
+ * Luokka uuden pelin rekisteröimistä varten tietokantaan
  *
  */
 public class UusiPeliGUIController implements ModalControllerInterface<Biljardi> {
