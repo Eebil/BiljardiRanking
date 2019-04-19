@@ -106,6 +106,17 @@ public class Peli {
 	 /**
 	  * parsitaan pelin tiedot merkkijonosta
 	 * @param rivi merkkijono, josta tiedot parsitaan
+	 * @example
+	 * <pre name="test">
+	 * Peli testi = new Peli();
+	 * String testiRivi = "1|2|1|05.06.1993 klo: 18:30|true|";
+	 * testi.parse(testiRivi);
+	 * 
+	 * testi.getP1Id() === 2;
+	 * testi.getP2Id() === 1;
+	 * testi.getTulosString() === "W - L";
+	 * 
+	 * </pre>
 	 */
 	public void parse(String rivi) {
 	        StringBuffer sb = new StringBuffer(rivi);

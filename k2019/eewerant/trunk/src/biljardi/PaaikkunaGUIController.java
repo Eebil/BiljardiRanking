@@ -241,8 +241,8 @@ public class PaaikkunaGUIController implements ModalControllerInterface<String> 
         Jasen jasen;
        
     	    if (rankingLista.getSelectedObject() != null) {jasen = rankingLista.getSelectedObject();  paivita();}
-    	    else jasen = hakuChooser.getSelectedObject();   	    
-    	    
+    	    else if (hakuChooser.getSelectedObject() != null) jasen = hakuChooser.getSelectedObject();   	    
+    	    else return;
     	ModalController.<Jasen, PelaajanTiedotGUIController>showModal(PelaajanTiedotGUIController.class.getResource("PelaajanTiedot.fxml"), "Pelaajan tiedot", null, jasen, ctrl -> ctrl.setBiljardi(biljardi));
     	muutettu = true;
     }
