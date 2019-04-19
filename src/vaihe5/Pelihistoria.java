@@ -41,6 +41,29 @@ public class Pelihistoria implements Iterable<Peli> {
 	}
 	/**
 	 * luetaan tiedostosta tiedot ohjelmalle
+	 * @example
+	 * <pre name="test">
+	 *  #import java.io.File;
+	 *  #import java.util.Iterator;
+     *  
+     *  Pelihistoria testPelihistoria = new Pelihistoria();
+     *  testPelihistoria.setTiedostonNimi("Testisankarit/pelihistoria");
+     *  File testiTiedosto = new File("Testisankarit/pelihistoria.dat");
+     *  File dir =  new File("Testisankarit");
+     *  dir.mkdir();
+     *  testPelihistoria.lisaa(2, 1, true);
+     *  testPelihistoria.lisaa(3, 1, false);
+     *  testPelihistoria.tallennaTiedostoon();
+     *  testPelihistoria = new Pelihistoria();
+     *  testPelihistoria.setTiedostonNimi("Testisankarit/pelihistoria");
+     *  testPelihistoria.lueTiedostosta();
+     *  Iterator<Peli> it = testPelihistoria.iterator();
+     *  it.next().getP1Id() === 2;
+     *  it.next().getP1Id() === 3;  
+     *  testiTiedosto.delete() === true;
+     *  dir.delete() === true;
+     *  
+	 * </pre>
 	 */
 	public void lueTiedostosta() {
 		// setTiedostonNimi(tiedosto);
@@ -59,7 +82,7 @@ public class Pelihistoria implements Iterable<Peli> {
 	}
 	
 	/**
-	 * Tallennetaan tiedot tiedostoon
+	 * Tallennetaan tiedot tiedostoon erotettuna tolppamerkillä
 	 */
 	public void tallennaTiedostoon() {
 		File tiedosto = new File(tiedNimi);
@@ -102,6 +125,22 @@ public class Pelihistoria implements Iterable<Peli> {
 	 * hakee kaikki pelit jossa haettava pelaaja on ollut osallisena
 	 * @param kenen Kenen pelej� haetaan
 	 * @return kaikki pelit jossa pelaaja on ollut osallisena
+	 * @example
+	 * <pre name="test">
+	 * #import java.util.List;
+	 * 
+	 * Pelihistoria testiPh = new Pelihistoria();
+	 * Jasen pelaaja = new Jasen();
+	 * pelaaja.parse("1|||||||");
+	 * testiPh.lisaa(1, 2, false);
+	 * testiPh.lisaa(3, 4, true);
+	 * testiPh.lisaa(4, 1, true);
+	 * testiPh.lisaa(4, 2, false);
+	 * List<Peli> haetut = testiPh.haePelit(pelaaja);
+	 * haetut.get(0).getP1Id() === 1;
+	 * haetut.get(1).getP1Id() === 4;
+	 *  
+	 * </pre>
 	 */
 	public List<Peli> haePelit(Jasen kenen) {
 		List<Peli> hakijanPelit = new ArrayList<Peli>();
@@ -111,6 +150,7 @@ public class Pelihistoria implements Iterable<Peli> {
 		return hakijanPelit;
 		
 	}
+	
 
 	/**
 	 * testipääohjelma pelihistoria-luokalle

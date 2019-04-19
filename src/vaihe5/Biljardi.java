@@ -80,7 +80,7 @@ public class Biljardi {
     public List<String> muutaPelinTiedoiksi(@SuppressWarnings("hiding") List<Peli> pelihistoria){
     	List<String> muutettu = new ArrayList<String>();
     	StringBuilder sb;
-    	for (Peli peli : pelihistoria) { //TODO: Muuta jos tulee nullPointeria poiston takia!!
+    	for (Peli peli : pelihistoria) {
     		sb = new StringBuilder();
     		sb.append(jasenet.getNimiId(peli.getP1Id()) + " - " + jasenet.getNimiId(peli.getP2Id()) + "|" + peli.getTulosString() + "|" + peli.getPvmString());
     		muutettu.add(sb.toString());

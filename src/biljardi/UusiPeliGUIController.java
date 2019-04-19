@@ -128,6 +128,7 @@ public class UusiPeliGUIController implements ModalControllerInterface<Biljardi>
 	 * @param pelaaja apumerkkijono, joka kertoo kumpi pelaaja kyseessa
 	 */
 	public void valitsePelaaja(ListChooser<Jasen> chooser, String pelaaja) {
+	    if (chooser.getSelectedObject() == null) return;
 		if (pelaaja.equals("p1")) {
 			p1 = chooser.getSelectedObject();
 			p1Label.setText(chooser.getSelectedObject().getNimi());
