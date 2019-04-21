@@ -61,6 +61,18 @@ public class Jasenet {
      * @param p1 pelaaja 1
      * @param p2 pelaaja 2
      * @param tulos true jos p1 voitti false jos p2 voitti
+     * @example
+     * <pre name="test">
+     *      Jasenet testi = new Jasenet();
+     *      Jasen eka = new Jasen();
+     *      Jasen toka = new Jasen();
+     *      testi.lisaa(eka);
+     *      testi.lisaa(toka);
+     *      testi.laskeTulos(eka, toka, true);
+     *      testi.anna(0).getElo() === 1515;
+     *      testi.anna(1).getElo() === 1485;
+     *      
+     * </pre>
      */
     public void laskeTulos(Jasen p1, Jasen p2, Boolean tulos) {
       
@@ -184,6 +196,7 @@ public class Jasenet {
     public void lisaa(Jasen lisattava) {
        try {
             this.alkiot[lkm] = lisattava;
+            lisattava.rekisteroi();
             lkm++;
       }catch (Exception e) {
             this.alkiot = kloonaaJaKasvata();

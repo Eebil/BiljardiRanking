@@ -22,9 +22,14 @@ public class Yleiset {
 	}
 	/**
 	 * Lasketaan todenn�k�isyys pelaajan voitolle perustuen pelaajan ja vastustajan ELO-rankingiin kahden pelaajan yhteenlaskettu todenn�k�isyys on 1
-	 * @param p1Elo Kysytt�v�n pelaajan ELO
-	 * @param p2Elo Vastustajan ELO
+	 * @param p1Elo Vastustaja ELO
+	 * @param p2Elo Pelaajan ELO jonka todennäköisyys voittoon palautetaan
 	 * @return todenn�k�isyys voitolle (v�lill� 0-1)
+	 * @example
+	 * <pre name="test">
+	 *     laskeTodennakoisyys(1000, 1000) ~~~ 0.50;
+	 *     laskeTodennakoisyys(0, 1000000)    ~~~ 1.0;
+	 * </pre>
 	 */
 	public static double laskeTodennakoisyys(int p1Elo, int p2Elo) {
 		
