@@ -21,6 +21,7 @@ public class Biljardi {
 
     /**
      * @param j jäsenistöön lisättävä jäsen
+     * @example
      */
     public void lisaa(Jasen j) {
         jasenet.lisaa(j);
@@ -28,6 +29,20 @@ public class Biljardi {
     /**
      * poistetaan j�sen id:n perusteella
      * @param id poistettavan j�senen id
+     * <pre name="test">
+     *      Biljardi testiRank = new Biljardi();
+     *      Jasen testi1 = new Jasen("testi1", 2000);
+     *      Jasen testi2 = new Jasen("testi2", 2001);
+     *      testiRank.lisaa(testi1);
+     *      testiRank.lisaa(testi2);
+     *      testiRank.annaJasen(0).getNimi() === "testi1";
+     *      testiRank.annaJasen(1).getNimi() === "testi2";
+     *      testiRank.annaJasen(0).getId() === 1;
+     *      testiRank.annaJasen(1).getId() === 2;
+     *      testiRank.poista(1);
+     *      testiRank.annaJasen(0).getNimi() === "testi2";
+     *       
+     * </pre>
      */
     public void poista(int id) {
     	jasenet.poista(id);
