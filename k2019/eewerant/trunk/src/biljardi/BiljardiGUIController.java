@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 /**
  * @author Eetu Rantala
- * @version 31.1.2019
+ * @version  27.4.2019
  *
  */
 public class BiljardiGUIController implements ModalControllerInterface<String> {

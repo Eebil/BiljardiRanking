@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Hierarkiassa korkeimpana oleva toiminnallinen luokka joka huolehtii muiden luokkien kommunikaatiosta
  * @author Eetu Rantala
- * @version 13.3.2019
+ * @version 27.4.2019
  *
  */
 public class Biljardi {

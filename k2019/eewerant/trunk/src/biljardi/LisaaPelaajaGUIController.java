@@ -13,7 +13,7 @@ import vaihe5.Biljardi;
 
 /**
  * @author Eetu Rantala
- * @version 22.3.2019
+ * @version  27.4.2019
  * kontrolleri uuden pelaajan lisäämiseksi jäsenistöön
  */
 public class LisaaPelaajaGUIController implements ModalControllerInterface<Biljardi>{
