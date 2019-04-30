@@ -4,7 +4,7 @@ package vaihe5;
 /**
  * erilaista härpäkettä tietojen käsittelyyn
  * @author Eetu Rantala
- * @version 14.3.2019
+ * @version  27.4.2019
  *
  */
 public class Yleiset {

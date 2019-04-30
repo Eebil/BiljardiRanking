@@ -13,7 +13,7 @@ import java.util.Scanner;
 /**
  * Jäsenistön luokka
  * @author Eetu Rantala
- * @version 11.3.2019
+ * @version 27.4.2019
  *
  */
 public class Jasenet {

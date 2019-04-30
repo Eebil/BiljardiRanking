@@ -7,7 +7,7 @@ import fi.jyu.mit.ohj2.Mjonot;
 /**
  * Luokka yksittäistä jäsentä varten
  * @author Eetu Rantala
- * @version 11.3.2019
+ * @version 27.4.2019
  *
  */
 public class Jasen {
